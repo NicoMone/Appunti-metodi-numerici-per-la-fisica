@@ -31,6 +31,7 @@
 %\usepackage{subfigure}
 \usepackage{wrapfig}
 \usepackage{caption}
+\captionsetup{font=small}
 \usepackage{subcaption}
 \usepackage{listings}
 \usepackage{color}
@@ -70,39 +71,72 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\lstset{language=python,
-	backgroundcolor=\color{white},
-	basicstyle=\footnotesize\ttfamily,
-	keywordstyle=\color{red},
-	stringstyle=\color{codepurple},
-	numberstyle=\tiny\color{codegray},
-	breaklines=true,
-	numbers=none,
-	numberstyle=\scriptsize\sffamily\color{black},
-	stepnumber=5,
-	numbersep=10pt,
-	captionpos=b,
-	commentstyle=\footnotesize\ttfamily\color{blue}}
-\lstset{frame=lines}
-\lstset{label={lst:code_direct}}
-\lstset{basicstyle=\footnotesize}
 \setlength{\parindent}{0pt}
 \addto\captionsitalian{\renewcommand*\figurename{\textsc{Fig.}}}
 \addto\captionsitalian{\renewcommand*\tablename{\textsc{Tab.}}}
 
+
+% PER IMPORTARE GLI SCRIPT
 \usepackage{listings}
 
-\lstset{
-	language=C++,
-	basicstyle=\ttfamily\small,
-	keywordstyle=\color{blue},
-	commentstyle=\color{gray},
-	stringstyle=\color{orange},
-	numbers=left,
-	numberstyle=\tiny\color{gray},
+\definecolor{lstbg}{HTML}{F7F7F7}
+\definecolor{lstframe}{HTML}{D9D9D9}
+\definecolor{lstnumbers}{HTML}{808080}
+\definecolor{lstkeyword}{HTML}{0000CC}
+\definecolor{lstcomment}{HTML}{008000}
+\definecolor{lststring}{HTML}{A31515}
+\definecolor{lstidentifier}{HTML}{111111}
+\definecolor{lstemph}{HTML}{795E26}
+
+\lstdefinestyle{base}{
+	backgroundcolor=\color{lstbg},
+	basicstyle=\ttfamily\small\color{lstidentifier},
+	keywordstyle=\bfseries\color{lstkeyword},
+	commentstyle=\itshape\color{lstcomment},
+	stringstyle=\color{lststring},
+	showstringspaces=false,
+	breaklines=true,
+	breakatwhitespace=false,
+	tabsize=4,
+	captionpos=b,
 	frame=single,
-	breaklines=true
+	rulecolor=\color{lstframe},
+	framesep=6pt,
+	framerule=0.8pt,
+	numbers=left,
+	numberstyle=\scriptsize\color{lstnumbers},
+	stepnumber=1,
+	numbersep=10pt,
+	xleftmargin=20pt,
+	framexleftmargin=20pt,
+	xrightmargin=4pt,
+	aboveskip=1.2em,
+	belowskip=1.2em
 }
+
+
+\lstdefinestyle{Cstyle}{
+	style=base,
+	language=C,
+	emph={printf,scanf,fprintf,fscanf,malloc,calloc,realloc,free,return,if,else,for,while,do,switch,case,break,continue},
+	emphstyle=\color{red}\bfseries
+}
+
+\lstdefinestyle{Pythonstyle}{
+	style=base,
+	language=Python,
+	emph={print,len,range,enumerate,zip,int,float,str,list,dict,set,tuple,input,open},
+	emphstyle=\color{red}\bfseries
+}
+
+\lstdefinestyle{Fortranstyle}{
+	style=base,
+	language=Fortran,
+	emph={program,end,subroutine,function,implicit,none,integer,real,double,precision,parameter,allocate,deallocate,print,write,read,do,if,then,else},
+	emphstyle=\color{red}\bfseries
+}
+
+
 
 % Stile base per teoremi/definizioni
 \tcbset{

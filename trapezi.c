@@ -42,7 +42,7 @@ double trapezioIntegral(double a,double b,int colonne){
 		return area;
 	}
 
-	// Simpson composito su [a,b] con "colonne" sottointervalli (deve essere pari)
+// Simpson composito su [a,b] con "colonne" sottointervalli (deve essere pari)
 double simpsonIntegral(double a,double b,int colonne){
     if(colonne < 2) colonne = 2;
     if(colonne % 2 != 0) colonne -= 1;   // Simpson richiede un numero pari di sottointervalli
