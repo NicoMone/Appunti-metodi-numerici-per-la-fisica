@@ -270,15 +270,23 @@
 	\cleardoublepage
 	\pagestyle{fancy}
 	
+	
+	%
+	%
 	\chapter*{Introduzione}
+	
 	\addcontentsline{toc}{chapter}{Introduzione}
+	
 	\markboth{Introduzione}{Introduzione}
 	
 	\emph{Pisa, \today} \hfill Nicolò Mone
 	
 	
-	
+	%
+	%
 	\tableofcontents
+	%
+	%
 	
 	\newpage 
 	
@@ -291,6 +299,23 @@
 	\newpage
 	
 	\input{ODE.tex}
+	
+	\newpage
+	\appendix
+
+	\input{Appendix-A-Differenze-Finite.tex}
+	
+	\input{Appendix-B-Thomas-algorithm.tex}
+	
+	\input{Appendix-C-Jacobi-method.tex}
+	
+	\input{Appendix-D-GS-SOR-LOR.tex}
+	
+	\input{Appendix-E-Alternate-Direction-Implicit.tex}
+	
+	\input{Appendix-F-Gradient-methods.tex}
+	
+	
 	
 	
 	

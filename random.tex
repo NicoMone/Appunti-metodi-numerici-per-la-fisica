@@ -123,9 +123,9 @@ L'idea è quella di costruire una macchina a molti stati in cui il valore succes
 Questa idea è alla base dei cosiddetti algoritmi \emph{add and carry} oppure \emph{subtract and carry}. Tra i generatori di questo tipo si trovano, ad esempio,
 
 \begin{itemize}
-	\item la routine \texttt{RAN3}: si mantiene una tabella di numeri precedenti e si genera il nuovo valore come differenza di due elementi della sequenza (In forma semplificata: $x_n=x_{n−j}−x_{n−k}$);
+	\item la routine \texttt{RAN3}: si mantiene una tabella di numeri precedenti e si genera il nuovo valore come differenza di due elementi della sequenza (In forma semplificata: $x_n=x_{n−j}-x_{n−k}$);
 	
-	\item il generatore \texttt{rcarry}: questo è un generatore della famiglia subtract-with-carry. È simile a quello precedente ma introduce una variabile aggiuntiva chiamata carry (l'idea è: $x_n=x_{n−r}−x_{n−s}-c$).
+	\item il generatore \texttt{rcarry}: questo è un generatore della famiglia subtract-with-carry. È simile a quello precedente ma introduce una variabile aggiuntiva chiamata carry (l'idea è: $x_n=x_{n−r}-x_{n−s}-c$).
 \end{itemize}
 
 Questi algoritmi presentano in genere periodi di ripetizione molto lunghi e buone proprietà statistiche (risolvendo parzialmente il problema della struttura geometrica in iperpiani).
@@ -139,13 +139,9 @@ Questi algoritmi presentano in genere periodi di ripetizione molto lunghi e buon
 
 Dopo aver costruito un generatore di numeri pseudo--casuali uniformi, il problema successivo consiste nel produrre variabili aleatorie con una distribuzione assegnata. In altre parole, dato un generatore che fornisce variabili uniformi, vogliamo ottenere campioni distribuiti secondo una densità prefissata.
 
-Sia dunque $x$ una variabile casuale distribuita uniformemente in un certo intervallo, con densità $p(x)$, e supponiamo di voler costruire una nuova variabile $y$ con densità $p(y)$. La relazione fondamentale tra le due densità si ottiene imponendo l'invarianza della probabilità sotto trasformazione di variabile. Si ha infatti
+Sia dunque $x$ una variabile casuale distribuita uniformemente in un certo intervallo, con densità $p(x)$, e supponiamo di voler costruire una nuova variabile $y$ con densità $p(y)$. La relazione fondamentale tra le due densità si ottiene imponendo l'invarianza della probabilità sotto trasformazione di variabile. 
 
-\[
-|p(y)\,dy| = p(x)\,dx .
-\]
-
-Da questa relazione segue immediatamente che
+Si ha infatti $|p(y)\,dy| = p(x)\,dx$, da questa relazione segue immediatamente che:
 
 \[
 p(y) = p(x)\left|\frac{dx}{dy}\right| .
@@ -165,23 +161,13 @@ In sostanza, assegnata la distribuzione voluta, si cerca una funzione di trasfor
 
 Il procedimento precedente si chiarisce riscrivendo la trasformazione in termini di funzione integrale della densità.
 
-Ricordando la relazione
+Ricordando la relazione $\frac{dx}{dy} = f(y)$ ed integrando rispetto a $y$, si ottiene
 
-\[
-\frac{dx}{dy} = f(y),
-\]
-
-e integrando rispetto a $y$, si ottiene
-
-\[
-x = F(y),
-\]
+\[ x = F(y)\ \ ,\]
 
 dove la funzione $F(y)$ è data, a meno di costanti additive o di opportune normalizzazioni, dall'integrale della densità:
 
-\[
-F(y) = \int p(y)\,dy .
-\]
+\[ F(y) = \int p(y)\,dy\ \ . \]
 
 Se la funzione $F$ è invertibile, allora si può esprimere $y$ in funzione di $x$ come
 
@@ -191,7 +177,10 @@ y(x) = F^{-1}(x).
 
 Questo è il contenuto essenziale del metodo della trasformazione inversa: si genera una variabile uniforme $x$, si costruisce la funzione cumulativa associata alla densità desiderata, e infine si ottiene la variabile distribuita secondo $p(y)$ applicando l'inversa della cumulativa.
 
-Il metodo funziona quindi molto bene quando l'inversa dell'integrale di $p(y)$ è disponibile in forma esplicita, oppure può essere calcolata numericamente in modo efficiente. Nelle slide si sottolinea proprio questo punto: finché l'inversa dell'integrale di $p(y)$ è numericamente accessibile, si dispone di una procedura generale per generare una distribuzione arbitraria.
+Il metodo funziona quindi molto bene quando l'inversa dell'integrale di $p(y)$ è disponibile in forma esplicita, oppure può essere calcolata numericamente in modo efficiente. 
+
+
+
 
 \subsection{Esempio: distribuzione esponenziale}
 
@@ -225,15 +214,7 @@ Si ottiene dunque la distribuzione esponenziale. Questo esempio è molto rilevan
 
 \subsection{Interpretazione geometrica del metodo}
 
-Le slide presentano anche un'interpretazione geometrica della trasformazione inversa, che è utile per capire intuitivamente il procedimento.
-
-Si introduce la funzione
-
-\[
-F(y) = \int p(y)\,dy,
-\]
-
-e si osserva che la variabile uniforme $x$ viene ottenuta come valore della cumulativa associata a $y$. Invertendo questa relazione, si ha ancora
+Ripartiamo da $F(y) = \int p(y)\,dy$ ; si osserva che la variabile uniforme $x$ viene ottenuta come valore della cumulativa associata a $y$. Invertendo questa relazione, si ha ancora
 
 \[
 y(x) = F^{-1}(x).
@@ -247,7 +228,7 @@ In altre parole, il metodo della trasformazione inversa trasforma una distribuzi
 
 Il metodo di trasformazione non è limitato al caso unidimensionale, ma si estende anche a distribuzioni in più variabili.
 
-Se $(x_1,x_2,\dots)$ è un vettore di variabili di partenza e $(y_1,y_2,\dots)$ è il nuovo vettore di variabili, allora la relazione tra le densità è regolata dal determinante jacobiano della trasformazione. Nelle slide la formula è scritta nella forma
+Se $(x_1,x_2,\dots)$ è un vettore di variabili di partenza e $(y_1,y_2,\dots)$ è il nuovo vettore di variabili, allora la relazione tra le densità è regolata dal determinante jacobiano della trasformazione:
 
 \[
 p(y_1,y_2,\dots)\,dy_1dy_2\cdots
@@ -258,13 +239,11 @@ p(y_1,y_2,\dots)\,dy_1dy_2\cdots
 p(x_1,x_2,\dots)\,dy_1dy_2\cdots .
 \]
 
-Questa espressione generalizza direttamente la formula unidimensionale
-
-\[
-p(y) = p(x)\left|\frac{dx}{dy}\right|.
-\]
+Questa espressione generalizza direttamente la formula unidimensionale.
 
 Anche qui il significato è lo stesso: la densità si modifica in funzione della deformazione locale dei volumi elementari operata dalla trasformazione.
+
+
 
 \subsection{Generazione di distribuzioni gaussiane: metodo di Box-Muller}
 
@@ -304,31 +283,9 @@ Questa trasformazione è progettata in modo tale che la densità congiunta di $(
 
 Per giustificare il metodo bisogna analizzare il jacobiano della trasformazione. Le slide rimandano direttamente al risultato finale, ma negli appunti conviene esplicitare almeno il quadro logico del calcolo.
 
-Partiamo dalla trasformazione
+Partiamo dalla trasformazione sopra presentata, con definizioni di $y_1,\, y_2,\, r,\, \theta$.
 
-\[
-y_1 = \sqrt{-2\ln x_1}\,\cos(2\pi x_2),
-\qquad
-y_2 = \sqrt{-2\ln x_1}\,\sin(2\pi x_2).
-\]
-
-È più comodo introdurre coordinate polari nel piano $(y_1,y_2)$, cioè
-
-\[
-y_1 = r\cos\theta,
-\qquad
-y_2 = r\sin\theta,
-\]
-
-con
-
-\[
-r = \sqrt{-2\ln x_1},
-\qquad
-\theta = 2\pi x_2.
-\]
-
-Da qui si ricava subito
+Si ricava:
 
 \[
 x_1 = e^{-r^2/2},
@@ -345,68 +302,26 @@ p(x_1,x_2)=1,
 
 Ora, il passaggio da $(x_1,x_2)$ a $(r,\theta)$ produce il fattore jacobiano
 
-\[
-\left|
-\frac{\partial(x_1,x_2)}{\partial(r,\theta)}
-\right|
-=
+\[\left|
+\begin{matrix}
+	\displaystyle\frac{\partial x_1}{\partial r} & \displaystyle\frac{\partial x_1}{\partial \theta}\\[4pt]
+	\displaystyle\frac{\partial x_2}{\partial r} & \displaystyle\frac{\partial x_2}{\partial \theta}
+\end{matrix}
+\right|\ =\ 
 \left|
 \begin{matrix}
-	\frac{\partial x_1}{\partial r} & \frac{\partial x_1}{\partial \theta}\\[4pt]
-	\frac{\partial x_2}{\partial r} & \frac{\partial x_2}{\partial \theta}
+	-r e^{-r^2/2} & 0\\[4pt]
+	0 & \frac{1}{2\pi}
 \end{matrix}
-\right|.
-\]
+\right|.\]
 
-Poiché
+si ottiene $\displaystyle\left|\frac{\partial(x_1,x_2)}{\partial(r,\theta)}\right|=\displaystyle\frac{r}{2\pi}e^{-r^2/2}$ .
 
-\[
-\frac{\partial x_1}{\partial r} = -r e^{-r^2/2},
-\qquad
-\frac{\partial x_1}{\partial \theta}=0,
-\qquad
-\frac{\partial x_2}{\partial r}=0,
-\qquad
-\frac{\partial x_2}{\partial \theta}=\frac{1}{2\pi},
-\]
 
-si ottiene
+Per passare poi da coordinate polari a coordinate cartesiane si usa il noto elemento di area $dy_1\,dy_2 = r\,dr\,d\theta$, cioè $dr\,d\theta = \displaystyle\frac{1}{r}\,dy_1\,dy_2$.
 
-\[
-\left|
-\frac{\partial(x_1,x_2)}{\partial(r,\theta)}
-\right|
-=
-\frac{r}{2\pi}e^{-r^2/2}.
-\]
-
-Per passare poi da coordinate polari a coordinate cartesiane si usa il noto elemento di area
-
-\[
-dy_1\,dy_2 = r\,dr\,d\theta,
-\]
-
-cioè
-
-\[
-dr\,d\theta = \frac{1}{r}\,dy_1\,dy_2.
-\]
-
-Combinando i due passaggi, si trova che la densità di $(y_1,y_2)$ è proporzionale a
-
-\[
-\frac{r}{2\pi}e^{-r^2/2}\cdot \frac{1}{r}
-=
-\frac{1}{2\pi}e^{-r^2/2}.
-\]
-
-Poiché
-
-\[
-r^2 = y_1^2 + y_2^2,
-\]
-
-segue che
+Combinando i due passaggi, si trova che la densità di $(y_1,y_2)$ è proporzionale a $\displaystyle\frac{r}{2\pi}e^{-r^2/2}\cdot \frac{1}{r}\, =\,\displaystyle\frac{1}{2\pi}e^{-r^2/2}$.
+Poiché $r^2 = y_1^2 + y_2^2$, segue che:
 
 \[
 P(y_1,y_2)=\frac{1}{2\pi}\exp\left(-\frac{y_1^2}{2}-\frac{y_2^2}{2}\right).

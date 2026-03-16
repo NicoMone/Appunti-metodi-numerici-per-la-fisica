@@ -833,11 +833,15 @@ Se noi andiamo a scrivere un programma per far propagare un'onda potremmo usare 
 
 Vediamo un esempio di programma in c++ con u=1 di fronte la derivata spaziale:
 
-\lstinputlisting{test2.cpp}
+\lstinputlisting[style=Cstyle,
+	caption={Burgers: applicazione all'evoluzione di un'ode con FTCS},
+	label={lst:Burgers}]{test2.cpp}
 
 Aggiungiamo il termine di dissipazione per ottenere $\boxed{\frac{\partial u}{\partial t} = - u \frac{\partial u}{\partial x} + \nu \frac{\partial^2 u}{\partial x^2}}$ così che la eq.\ref{Burgers FTCS} diventi questa volta:
 \[
 u^{n+1}_j = u^n_j + \Delta t \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x} + \nu \Delta t \frac{u_{j-1}^n -2u_j^n + u_{j+1}^n}{dx^2}  \ \ \ \ .
 \]
 
-\lstinputlisting{test3.cpp}
+\lstinputlisting[style=Cstyle,
+	caption={upgrade dell'applicazione precedente},
+	label={lst:Burgers 2}]{test3.cpp}
