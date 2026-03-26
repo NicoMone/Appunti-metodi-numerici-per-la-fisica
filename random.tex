@@ -78,7 +78,7 @@ Un esempio è la routine \texttt{RAN1.F}, che combina tre metodi congruenziali d
 Se la velocità di esecuzione è il fattore principale, è possibile utilizzare una combinazione più semplice di due generatori congruenziali. Questa strategia è adottata nella routine \texttt{RAN2}. Tuttavia, in questo caso il generatore tende a campionare una porzione più limitata dello spazio delle configurazioni.
 
 \lstinputlisting[style=Fortranstyle,
-	caption={RAN1.F, combinazione di generatori congruenziali, esempio ispirato al \emph{"Numerical Recipes"} di Press, Teukolsky, Vetterling, Flannery},
+	caption={RAN1.f90, combinazione di generatori congruenziali, esempio ispirato al \emph{"Numerical Recipes"} di Press, Teukolsky, Vetterling, Flannery. Nota bene: questa è solamente una routine, per essere utilizzata va chiamata},
 	label={lst:combinazione generatori}]{RAN1.f90}
 
 
@@ -139,8 +139,7 @@ Questi algoritmi presentano in genere periodi di ripetizione molto lunghi e buon
 
 Dopo aver costruito un generatore di numeri pseudo--casuali uniformi, il problema successivo consiste nel produrre variabili aleatorie con una distribuzione assegnata. In altre parole, dato un generatore che fornisce variabili uniformi, vogliamo ottenere campioni distribuiti secondo una densità prefissata.
 
-Sia dunque $x$ una variabile casuale distribuita uniformemente in un certo intervallo, con densità $p(x)$, e supponiamo di voler costruire una nuova variabile $y$ con densità $p(y)$. La relazione fondamentale tra le due densità si ottiene imponendo l'invarianza della probabilità sotto trasformazione di variabile. 
-
+Sia dunque $x$ una variabile casuale distribuita uniformemente in un certo intervallo, con densità $p(x)$, e supponiamo di voler costruire una nuova variabile $y$ con densità $p(y)$. La relazione fondamentale tra le due densità si ottiene imponendo l'\underline{invarianza della probabilità} sotto trasformazione di variabile.
 Si ha infatti $|p(y)\,dy| = p(x)\,dx$, da questa relazione segue immediatamente che:
 
 \[
@@ -149,14 +148,14 @@ p(y) = p(x)\left|\frac{dx}{dy}\right| .
 
 Questa formula esprime il fatto che la densità della nuova variabile dipende dalla densità di partenza e dal modo in cui la trasformazione $x \mapsto y$ dilata o contrae gli intervalli.
 
-Il problema centrale diventa allora quello di determinare una trasformazione opportuna tra $x$ e $y$. Nelle slide questa ricerca viene ricondotta alla risoluzione di un'equazione differenziale del tipo
-
-\[
-\frac{dx}{dy} = f(y) .
-\]
+Il problema centrale diventa allora quello di determinare una trasformazione opportuna tra $x$ e $y$. Ciò si riconduce a risolvere
+$\frac{dx}{dy} = f(y)$ .
 
 In sostanza, assegnata la distribuzione voluta, si cerca una funzione di trasformazione tale che la variabile uniforme iniziale venga mappata nella nuova variabile con la densità desiderata.
 
+%
+%
+%
 \subsection{Metodo della funzione cumulativa inversa}
 
 Il procedimento precedente si chiarisce riscrivendo la trasformazione in termini di funzione integrale della densità.
@@ -182,7 +181,7 @@ Il metodo funziona quindi molto bene quando l'inversa dell'integrale di $p(y)$ �
 
 
 
-\subsection{Esempio: distribuzione esponenziale}
+\subsubsection{Esempio: distribuzione esponenziale}
 
 Un esempio particolarmente importante è quello della distribuzione esponenziale. Si consideri la trasformazione
 
@@ -210,9 +209,12 @@ segue che, a meno della costante uniforme $p(x)$, la densità di $y$ è
 p(y)\,dy = e^{-y}\,dy .
 \]
 
-Si ottiene dunque la distribuzione esponenziale. Questo esempio è molto rilevante anche dal punto di vista pratico, perché mostra che una trasformazione elementare di una variabile uniforme permette di costruire una distribuzione non uniforme molto usata nelle applicazioni probabilistiche e fisiche.
+Si ottiene dunque la distribuzione esponenziale. 
 
-\subsection{Interpretazione geometrica del metodo}
+%
+%
+%
+\subsubsection{Interpretazione geometrica del metodo}
 
 Ripartiamo da $F(y) = \int p(y)\,dy$ ; si osserva che la variabile uniforme $x$ viene ottenuta come valore della cumulativa associata a $y$. Invertendo questa relazione, si ha ancora
 
@@ -247,45 +249,33 @@ Anche qui il significato è lo stesso: la densità si modifica in funzione della
 
 \subsection{Generazione di distribuzioni gaussiane: metodo di Box-Muller}
 
-Un'applicazione molto importante del caso multidimensionale è la generazione di variabili gaussiane. Le slide introducono il metodo di Box--Muller, che permette di ottenere due variabili gaussiane indipendenti a partire da due variabili uniformi indipendenti.
+Un'applicazione molto importante del caso multidimensionale è la generazione di variabili gaussiane: il metodo di \href{https://www.taygeta.com/random/gaussian.html}{Box-Muller}, che permette di ottenere due variabili gaussiane indipendenti a partire da due variabili uniformi indipendenti.
 
 Si considerino due variabili uniformi indipendenti $x_1$ e $x_2$, entrambe distribuite uniformemente in $(0,1)$. Si definiscono allora le nuove variabili
 
 \[
-y_1 = \sqrt{-2\ln x_1}\,\cos(2\pi x_2),
+y_1 \,=\, \sqrt{-2\ln x_1}\,\cos(2\pi x_2) \,=\, r\cos\theta,
 \]
 
 \[
-y_2 = \sqrt{-2\ln x_1}\,\sin(2\pi x_2).
+y_2 \,=\, \sqrt{-2\ln x_1}\,\sin(2\pi x_2) \,=\, r\sin\theta.
 \]
 
-Queste formule costituiscono la trasformazione di Box--Muller.
+Queste formule costituiscono la trasformazione di Box--Muller. Le due variabili uniformi $x_1$ e $x_2$ vengono reinterpretate come variabili ausiliarie che costruiscono, rispettivamente, il raggio e l'angolo in coordinate polari nel piano delle variabili gaussiane. In particolare, $r = \sqrt{-2\ln x_1}$ e $\theta = 2\pi x_2$ .
 
-L'idea sottostante è molto elegante. Le due variabili uniformi $x_1$ e $x_2$ vengono reinterpretate come variabili ausiliarie che costruiscono, rispettivamente, il raggio e l'angolo in coordinate polari nel piano delle variabili gaussiane. In particolare,
+Questa trasformazione è progettata in modo tale che la densità congiunta di $(y_1,y_2)$ risulti gaussiana e radialmente simmetrica, così da avere una routine che trasformi due variabili indipendenti distribuite uniformemente in due variabili distribuite gaussianamente.
 
-\[
-r = \sqrt{-2\ln x_1},
-\qquad
-\theta = 2\pi x_2,
-\]
+\begin{figure}[H]
+	\centering
+	\label{box-muller}
+	\includegraphics[width=10cm]{img/cartesian_rand_transform.png}
+	\caption{Immagine presa da \href{https://www.algorithm-archive.org/contents/box_muller/box_muller.html}{QUI  <--}}
+\end{figure}
 
-così che
 
-\[
-y_1 = r\cos\theta,
-\qquad
-y_2 = r\sin\theta.
-\]
+\paragraph{Calcolo del Jacobiano nella trasformazione di Box-Muller}
 
-Questa trasformazione è progettata in modo tale che la densità congiunta di $(y_1,y_2)$ risulti gaussiana e radialmente simmetrica.
-
-\subsection{Calcolo del Jacobiano nella trasformazione di Box-Muller}
-
-Per giustificare il metodo bisogna analizzare il jacobiano della trasformazione. Le slide rimandano direttamente al risultato finale, ma negli appunti conviene esplicitare almeno il quadro logico del calcolo.
-
-Partiamo dalla trasformazione sopra presentata, con definizioni di $y_1,\, y_2,\, r,\, \theta$.
-
-Si ricava:
+Per giustificare il metodo bisogna analizzare lo jacobiano della trasformazione. Partiamo dalla trasformazione sopra presentata, con definizioni di $y_1,\, y_2,\, r,\, \theta$. Si ricava:
 
 \[
 x_1 = e^{-r^2/2},
@@ -293,12 +283,9 @@ x_1 = e^{-r^2/2},
 x_2 = \frac{\theta}{2\pi}.
 \]
 
-Poiché $x_1$ e $x_2$ sono uniformi e indipendenti, la loro densità congiunta è costante nel quadrato unitario:
+Poiché $x_1$ e $x_2$ sono uniformi e indipendenti, la loro densità congiunta è costante nel quadrato unitario:$p(x_1,x_2)=1,
+\qquad 0<x_1<1,\; 0<x_2<1$.
 
-\[
-p(x_1,x_2)=1,
-\qquad 0<x_1<1,\; 0<x_2<1.
-\]
 
 Ora, il passaggio da $(x_1,x_2)$ a $(r,\theta)$ produce il fattore jacobiano
 
@@ -315,7 +302,7 @@ Ora, il passaggio da $(x_1,x_2)$ a $(r,\theta)$ produce il fattore jacobiano
 \end{matrix}
 \right|.\]
 
-si ottiene $\displaystyle\left|\frac{\partial(x_1,x_2)}{\partial(r,\theta)}\right|=\displaystyle\frac{r}{2\pi}e^{-r^2/2}$ .
+si ottiene $\displaystyle\left|\frac{\partial(x_1,x_2)}{\partial(r,\theta)}\right|\,=\,\displaystyle\frac{r}{2\pi}\, e^{-r^2/2}$ .
 
 
 Per passare poi da coordinate polari a coordinate cartesiane si usa il noto elemento di area $dy_1\,dy_2 = r\,dr\,d\theta$, cioè $dr\,d\theta = \displaystyle\frac{1}{r}\,dy_1\,dy_2$.
@@ -327,26 +314,249 @@ Poiché $r^2 = y_1^2 + y_2^2$, segue che:
 P(y_1,y_2)=\frac{1}{2\pi}\exp\left(-\frac{y_1^2}{2}-\frac{y_2^2}{2}\right).
 \]
 
-Nelle slide il risultato finale viene riportato direttamente come densità gaussiana congiunta delle due variabili trasformate. Questa è precisamente la distribuzione normale bidimensionale standard con componenti indipendenti.
+Questa è precisamente la distribuzione normale bidimensionale standard 
+con componenti indipendenti.
 
-\subsection{Interpretazione probabilistica del risultato}
 
-Dalla formula precedente si riconosce che $y_1$ e $y_2$ sono due variabili gaussiane standard indipendenti, ciascuna con media nulla e varianza unitaria. Infatti la densità congiunta fattorizza come
-
-\[
-P(y_1,y_2)
-=
-\frac{1}{\sqrt{2\pi}}e^{-y_1^2/2}
-\cdot
-\frac{1}{\sqrt{2\pi}}e^{-y_2^2/2}.
-\]
-
-Il metodo di Box--Muller è quindi una procedura esplicita per generare campioni gaussiani a partire da uniformi. È particolarmente importante perché trasforma un problema di campionamento apparentemente difficile in una semplice combinazione di logaritmi, radici quadrate e funzioni trigonometriche.
-
-Dal punto di vista computazionale, il metodo è molto pulito e teoricamente trasparente. In molte implementazioni moderne si utilizzano anche varianti più efficienti, ma la trasformazione di Box--Muller rimane uno dei metodi classici fondamentali per comprendere il campionamento gaussiano.
 
 \subsection{Osservazione conclusiva su questa parte}
 
 Riassumendo, il principio generale è il seguente: una volta ottenute variabili uniformi affidabili, si possono costruire distribuzioni non uniformi applicando trasformazioni opportune. Nel caso unidimensionale il punto chiave è l'inversione della cumulativa; nel caso multidimensionale entra in gioco il determinante jacobiano della trasformazione.
 
 Questo quadro teorico prepara direttamente al metodo di \emph{rejection}, che diventa essenziale quando l'inversa della cumulativa non è disponibile in forma trattabile.
+
+
+\subsection{Rejection method}
+
+Il metodo del rifiuto permette di generare distribuzioni non uniformi senza richiedere il calcolo esplicito dell'integrale della densità.
+
+Si consideri una distribuzione di probabilità desiderata $p(x)$, e una funzione $f(x)$ tale che $f(x) > p(x) \quad \forall x$, l'idea è utilizzare una coppia di variabili casuali uniformi per campionare la distribuzione $p(x)$.
+
+Si procede nel seguente modo:
+
+\begin{itemize}
+	\item si estrae un valore $x_s$ uniformemente distribuito nel dominio;
+	\item si estrae una seconda variabile casuale $x_1$ uniforme tra $0$ e $f(x_s)$;
+	\item si accetta $x_s$ se vale la condizione $x_1 < p(x_s)$
+\end{itemize}
+
+Se la condizione non è soddisfatta, il punto viene rifiutato e si ripete la procedura. Questo metodo non richiede la conoscenza della funzione cumulativa, ma soltanto una funzione $f(x)$ che sovrastimi $p(x)$.
+
+\paragraph{Interpretazione geometrica:}
+
+Il metodo può essere interpretato geometricamente. Si consideri il grafico delle funzioni $p(x)$ e $f(x)$, con $f(x)$ tale che $f(x) \ge p(x)$
+
+\begin{multicols}{2}
+\begin{figure}[H]
+	\label{rejection}
+	\includegraphics[width=6.9cm]{img/rejection.png}
+	\caption{rappresentazione grafica del \emph{rejection method}}
+\end{figure}
+
+Si generano punti uniformemente nella regione delimitata da $f(x)$.
+
+Un punto viene accettato se cade sotto la curva $p(x)$.
+
+In questo modo, i punti accettati risultano distribuiti secondo la densità desiderata.
+
+In fig.(\ref{rejection}), i punti accettati sono quelli che cadono sotto $p(x)$, mentre gli altri vengono scartati.
+\end{multicols}
+
+%
+%
+%
+\subsection{Metodo del rifiuto per la distribuzione Gamma}
+
+La distribuzione Gamma di ordine intero $a > 0$ rappresenta la distribuzione del tempo di attesa per il verificarsi del $a$-esimo evento in un processo di Poisson con valore medio unitario ed è data da:
+
+\begin{equation}
+	p_a(x)\,dx \ =\
+	\frac{x^{a-1} e^{-x}}{\Gamma(a)}\,dx\ \ ,
+	\qquad x>0\ \ ,
+\end{equation}
+
+
+Per valori piccoli di $a$, è possibile generare direttamente la distribuzione come somma di variabili esponenziali indipendenti.
+
+Questo equivale a calcolare il prodotto di $a$ variabili casuali uniformi e successivamente prendere il logaritmo.
+
+Per valori più grandi di $a$, la distribuzione assume una forma a campana: con massimo circa in $x \approx a$ e larghezza dell'ordine $\sqrt{a}$
+
+%
+\subsubsection{Funzione di confronto}
+
+Per applicare il metodo del rifiuto, si introduce una funzione di confronto.
+
+Una scelta conveniente che si rivela utile è la distribuzione di Lorentz:
+
+\begin{equation}
+	\label{Lorentziana}
+	p(y)\,dy =
+	\frac{1}{\pi (1 + y^2)}\,dy
+\end{equation}
+
+Integrandola si ottiene
+
+\begin{equation}
+	F(y) = \int p(y)\,dy = \frac{1}{\pi} \arctan(y)
+\end{equation}
+
+\begin{multicols}{2}
+	
+%
+\subsubsection{Funzione di maggiorazione}
+
+Si introduce una funzione $f(x)$ della forma
+
+\begin{equation}
+	f(x)\ =\
+	\frac{c_0}{1\, +\, (x - x_0)^2 / a_0^2}
+\end{equation}
+
+Questa funzione deve essere scelta in modo tale che $f(x) \ge p(x)$ e che il prodotto $a_0\, c_0$ sia il più piccolo possibile, al fine di minimizzare il numero di rifiuti.
+
+\begin{figure}[H]
+	\centering	
+	\label{gamma+lorentz}
+	\includegraphics[width=6cm]{img/gamma_function.png}
+	\caption{\emph{Gamma function} in rosso, mentre in verde si vede la lorentziana, funzione di maggiorazione $f(x)$.}
+\end{figure}
+\end{multicols}
+
+\subsubsection{Algoritmo}
+
+Si genera una variabile uniforme $u \in [0,1]$ e si pone $x = a_0 \tan(\pi u) + x_0$ cioè $x = f^{-1}(y)$.
+
+Successivamente si verifica la condizione di accettazione (rejection test).
+
+Questo procedimento è implementato, ad esempio, nella routine \texttt{GAMDEV}.
+
+\lstinputlisting[style=Cstyle,
+	caption={Implementazione del metodo GAMDEV},
+	label={lst:gamma rejection}]{GAMDEV.c}
+
+
+
+
+\section{Integrazione Monte Carlo}
+
+Il metodo di integrazione Monte Carlo è strettamente collegato al metodo del rifiuto.
+
+Esso permette di stimare integrali multidimensionali mediante campionamento casuale.
+
+In uno spazio $n$-dimensionale, dato un insieme di $N$ punti $x_i$, vale la stima
+
+\begin{equation}
+	\int_V f\,dV\ \approx\ V \langle f \rangle\, \pm\, V\, \sqrt{\frac{\langle f^2 \rangle - \langle f \rangle^2}{N}}
+\end{equation}
+
+dove
+
+\begin{equation}
+	\langle f^n \rangle =
+	\frac{1}{N} \sum_{i=1}^N f^n(x_i)
+\end{equation}
+
+\begin{multicols}{2}
+\subsubsection{Interpretazione}
+
+L'idea è quella di incorporare una regione difficile da campionare all'interno di una regione più semplice, dalla quale è possibile estrarre punti uniformemente.
+
+Successivamente si utilizza il campionamento casuale per stimare l'integrale.
+
+Il metodo può essere scritto in molti modi diversi in base a in quante dimensioni stiamo campionando, in quale spazio estraiamo i nostri punti e che forma ha la funzione, ma il concetto rimane sempre questo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{img/MonteCarloIntegration.png}
+	\label{monte carlo}
+	\caption{Esempio visuale preso da "\emph{Numerical Recipes in C}". L'integrale della funzione $f$ è stimato come l'area del rettangolo A moltiplicata per la frazione di punti che si trova sotto la curva $f$}
+\end{figure}
+
+\end{multicols}
+
+
+\subsubsection{Esempio: area di un cerchio}
+
+Si consideri il calcolo dell'area di un cerchio unitario.
+
+Si definisce una funzione
+
+\begin{equation}
+	f =
+	\begin{cases}
+		1 & \text{all'interno del cerchio} \\
+		0 & \text{all'esterno}
+	\end{cases}
+\end{equation}
+
+Il volume della regione di campionamento è V = 4, la stima dell'area è $\int_V f\,dV \approx V \langle f \rangle$
+
+
+\begin{multicols}{2}
+Per $N = 1000$ si ottiene
+
+\[\begin{aligned}
+	\langle f \rangle &=\ 0.797\\
+	\text{area} &=\ 3.19 \pm 0.05
+\end{aligned}\]
+
+Per $N = 10^6$:
+
+\[\begin{aligned}
+	\langle f \rangle &=\ 0.78616\\
+	\text{area} &=\ 3.145 \pm 0.005
+\end{aligned}\]
+
+\begin{figure}[H]
+	\centering
+	\label{aa}
+	\includegraphics[width=5cm]{img/pie.png}
+	\caption{Integrale Monte Carlo dell'area di un cerchio}
+\end{figure}
+\end{multicols}
+
+%
+\subsubsection{Esempio: disco con foro}
+
+Si consideri un disco di raggio 1 con un foro di raggio 0.5 centrato nel punto $(0.5,0)$.
+
+Si vogliono calcolare:
+
+\begin{equation}
+	x_{cm} = \frac{\int x\,dV}{\int dV}
+\end{equation}
+
+\begin{equation}
+	I_{0,0} = \int (x^2 + y^2)\,dV
+\end{equation}
+
+
+\begin{multicols}{2}
+
+Le funzioni da integrare sono:
+
+\begin{itemize}
+	\item $f_x = x$ all'interno della regione, zero fuori;
+	\item $f_y^2 = y^2$, ecc.
+\end{itemize}
+
+Per $N = 10^6$ si ottiene:
+
+\[\begin{aligned}
+	x_{cm} &=\ -0.393\ \pm\ 0.004\\
+	y_{cm} &=\ -0.000\ \pm\ 0.005\\
+	I_{0,0} &\approx\ 1.275
+\end{aligned}\]
+
+\begin{figure}[H]
+	\centering
+	\label{aaa}
+	\includegraphics[width=6cm]{img/MCintegral.png}
+	\caption{Integrale Monte Carlo dell'area di un cerchio forato}
+\end{figure}
+\end{multicols}
+
+\lstinputlisting[style=Pythonstyle,
+	caption={Esercizio di integrazione Monte Carlo del disco bucato in Python, scritta da ChatGpt 5.3},
+	label={lst:gamma rejection}]{MonteCarloIntegration-HoledDisk.py}

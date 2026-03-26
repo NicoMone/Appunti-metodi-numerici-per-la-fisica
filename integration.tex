@@ -1,4 +1,6 @@
-\chapter{Introduzione all'analisi numerica nell'integrazione}
+\chapter{Analisi numerica nell'integrazione}
+
+\section{Introduzione}
 
 Il problema dell'integrazione numerica può essere risolto, in linea di principio, con l'aiuto di equazioni differenziali ordinarie (\underline{ODEs}):
 \[ \int^x_a\, f(y)\, dy\ =\ g(x) \quad \quad \Rightarrow \quad \quad \frac{d\, g}{d\, x}\ =\ f(x)\ , \]
@@ -9,7 +11,7 @@ Sebbene questa osservazione sia formalmente corretta, è preferibile sviluppare 
 Un algoritmo generale di integrazione numerica ha la struttura
 
 \[
-\int_a^b f(x)\,dx = \sum_i w_i f(x_i),
+\int_a^b f(x)\,dx\ =\ \sum_i\, w_i\, f(x_i),
 \]
 
 dove $w_i$ sono pesi e $x_i$ i nodi di valutazione. 
@@ -63,7 +65,11 @@ Formule di ordine superiore si ottengono interpolando con polinomi di grado più
 \end{equation} 
 
 che è la \underline{regola di Simpson}, esatta per polinomi fino al terzo grado.
-La regola di Simpson nasce dall'interpolazione con una parabola $P(x)=Ax^x + Bx+C$ su tre punti equispaziati $x_0$, $x_1$, $x_2$ con funzione da integrare $f_0=f(x_0)$, $f_1$, $f_2$. Facciamo un cambio di variabile $t=x-x_i$ così che i tre punti diventino $t=0,\, h,\, 2h$, riscrivendo la parabola come $P(t)=at^2+bt+c$. Si va ora ad imporre che $P(t=0)=c=f_0$, mentre nel secondo punto $P(t=h)=ah^2+b^h+c=f_1$ e nel terzo $P(t=2h)=4ah^2+2bh+c=f_2$. Invertendo questo sistema di equazioni si trova che $c=f_0$, $a=\frac{f_2-2f_1+f_0}{2h^2}$ mentre $b=\frac{f_1-f_0}{h}-ah$.
+
+La regola di Simpson nasce dall'interpolazione con una parabola $P(x)=Ax^x + Bx+C$ su tre punti equispaziati $x_0$, $x_1$, $x_2$ con funzione da integrare $f_0=f(x_0)$, $f_1$, $f_2$. Facciamo un cambio di variabile $t=x-x_i$ così che i tre punti diventino $t=0,\, h,\, 2h$, riscrivendo la parabola come $P(t)=at^2+bt+c$. 
+
+Si va ora ad imporre che $P(t=0)=c=f_0$, mentre nel secondo punto $P(t=h)=ah^2+b^h+c=f_1$ e nel terzo $P(t=2h)=4ah^2+2bh+c=f_2$. Invertendo questo sistema di equazioni si trova che $c=f_0$, $a=\frac{f_2-2f_1+f_0}{2h^2}$ mentre $b=\frac{f_1-f_0}{h}-ah$.
+
 A questo punto l'integrale $\int_{x_0}^{x_2} f(x) dx\approx \int_0^{2h} P(t) dt= \int_0^{2h} at^2+bt+f_0 dt$ è facilmente sostituibile con le dovute sostituzioni di $a$ e $b$ nelle forme appena trovate e con una semplice integrazione del polinomio si ottiene proprio Simpson: $\int_{x_0}^{x_2} f(x) dx\approx \frac{h}{3} [f_0 + 4\,f_1 + f_2]$.
 
 Analogamente, per cinque punti la formula di Newton-Cotes diventa:
@@ -136,7 +142,7 @@ con la regola di Simpson estesa eq.(\ref{Simpson-esteso}), si ottiene una formul
 
 Il problema pratico fondamentale rimane: quanti passi bisogna utilizzare?
 
-Se si usa la regola dei trapezi come blocco base, l'errore scala come $boxed{\frac{K}{N^2}}$, raddoppiando $N$, l'errore si riduce di un fattore 4. Questo comportamento è alla base dei metodi di raffinamento successivi.
+Se si usa la regola dei trapezi come blocco base, l'errore scala come $\boxed{K/N^2}$, raddoppiando $N$, l'errore si riduce di un fattore 4. Questo comportamento è alla base dei metodi di raffinamento successivi.
 
 \subsection{Valutazione dell’errore e formula esatta dei trapezi}
 

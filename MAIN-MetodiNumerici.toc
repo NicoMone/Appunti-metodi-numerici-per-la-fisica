@@ -10,59 +10,88 @@
 \contentsline {section}{\numberline {1.1}Generazione di distribuzioni non uniformi}{13}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Dal caso uniforme a una distribuzione arbitraria}{13}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}Metodo della funzione cumulativa inversa}{14}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Esempio: distribuzione esponenziale}{14}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Interpretazione geometrica del metodo}{15}{subsection.1.1.4}%
-\contentsline {subsection}{\numberline {1.1.5}Trasformazioni in più dimensioni}{15}{subsection.1.1.5}%
-\contentsline {subsection}{\numberline {1.1.6}Generazione di distribuzioni gaussiane: metodo di Box-Muller}{16}{subsection.1.1.6}%
-\contentsline {subsection}{\numberline {1.1.7}Calcolo del Jacobiano nella trasformazione di Box-Muller}{16}{subsection.1.1.7}%
-\contentsline {subsection}{\numberline {1.1.8}Interpretazione probabilistica del risultato}{17}{subsection.1.1.8}%
-\contentsline {subsection}{\numberline {1.1.9}Osservazione conclusiva su questa parte}{17}{subsection.1.1.9}%
-\contentsline {chapter}{\numberline {2}Introduzione all'analisi numerica nell'integrazione}{19}{chapter.2}%
-\contentsline {subsection}{\numberline {2.0.1}Formule di Newton–Cotes su intervallo singolo}{20}{subsection.2.0.1}%
-\contentsline {subsection}{\numberline {2.0.2}Alcune formule locali}{20}{subsection.2.0.2}%
-\contentsline {subsection}{\numberline {2.0.3}Intervalli estesi}{21}{subsection.2.0.3}%
-\contentsline {subsection}{\numberline {2.0.4}Valutazione dell’errore e formula esatta dei trapezi}{23}{subsection.2.0.4}%
-\contentsline {subsection}{\numberline {2.0.5}Integrazione di Romberg}{24}{subsection.2.0.5}%
-\contentsline {subsection}{\numberline {2.0.6}Quadrature Gaussiane}{26}{subsection.2.0.6}%
-\contentsline {subsubsection}{Tabella Gauss–Legendre}{28}{subsubsection*.6}%
-\contentsline {subsection}{\numberline {2.0.7}Integrali impropri}{28}{subsection.2.0.7}%
-\contentsline {subsubsection}{Limiti infiniti}{28}{subsubsection*.7}%
-\contentsline {subsubsection}{Singolarità integrabile all’estremo}{28}{subsubsection*.8}%
-\contentsline {subsubsection}{Singolarità interna}{29}{subsubsection*.9}%
-\contentsline {subsubsection}{Singolarità di tipo Cauchy}{29}{subsubsection*.10}%
-\contentsline {subsubsection}{Formule aperte}{30}{subsubsection*.11}%
-\contentsline {chapter}{\numberline {3}Integrazione numerica delle Equazioni Differenziali Ordinarie (ODE)}{31}{chapter.3}%
-\contentsline {subsection}{\numberline {3.0.1}Metodi multi-step}{32}{subsection.3.0.1}%
-\contentsline {subsubsection}{Metodi impliciti}{32}{subsubsection*.12}%
-\contentsline {subsubsection}{Famiglie di metodi multistep di tipo Adams}{32}{subsubsection*.13}%
-\contentsline {subsubsection}{analisi dell'ordine di errore}{33}{subsubsection*.16}%
-\contentsline {subsubsection}{stabilità, radici caratteristiche, regioni di A-stabilità}{34}{subsubsection*.18}%
-\contentsline {subsubsection}{Confronto di metodi multi-step}{36}{subsubsection*.21}%
-\contentsline {subsection}{\numberline {3.0.2}Metodi one-step}{37}{subsection.3.0.2}%
-\contentsline {subsubsection}{metodi Runge-Kutta}{37}{subsubsection*.24}%
-\contentsline {subsubsection}{Controllo del passo mediante Richardson}{39}{subsubsection*.27}%
-\contentsline {subsubsection}{Il metodo del midpoint modificato}{39}{subsubsection*.29}%
-\contentsline {subsubsection}{Richardson extrapolation e metodo di Burlisch--Stoer}{40}{subsubsection*.30}%
-\contentsline {subsubsection}{Metodi Runge-Kutta Hamiltoniani}{41}{subsubsection*.32}%
-\contentsline {paragraph}{Idea generale.}{41}{paragraph*.33}%
-\contentsline {paragraph}{\emph {'Velocity Verlet'} / \emph {'Leapfrog'}}{41}{paragraph*.34}%
-\contentsline {paragraph}{Esempio di schema simplettico.}{42}{paragraph*.35}%
-\contentsline {paragraph}{Esempio pratico.}{42}{paragraph*.36}%
-\contentsline {subsection}{\numberline {3.0.3}Equazioni stiff}{42}{subsection.3.0.3}%
-\contentsline {paragraph}{Esempio semplice.}{42}{paragraph*.37}%
-\contentsline {paragraph}{Come affrontare il problema?}{42}{paragraph*.38}%
-\contentsline {subsection}{\numberline {3.0.4}Boundary Value Problems (BVP)}{43}{subsection.3.0.4}%
-\contentsline {subsubsection}{Shooting method}{43}{subsubsection*.39}%
-\contentsline {subsubsection}{metodo di rilassamento / differenze finite}{43}{subsubsection*.40}%
-\contentsline {section}{\numberline {3.1}Equazioni differenziali alle derivate parziali (PDE)}{45}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Differenze finite}{46}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Flux-conservative PDEs}{47}{subsection.3.1.2}%
-\contentsline {subsubsection}{Forward Time, Centered Space}{47}{subsubsection*.41}%
-\contentsline {subsubsection}{Metodo di Lax}{47}{subsubsection*.42}%
-\contentsline {subsection}{\numberline {3.1.3}Una soluzione pratica}{48}{subsection.3.1.3}%
-\contentsline {chapter}{\numberline {A}Metodo delle differenze finite}{53}{appendix.Alph1}%
-\contentsline {chapter}{\numberline {B}Algoritmo di Thomas}{57}{appendix.Alph2}%
-\contentsline {chapter}{\numberline {C}Metodo di Jacobi}{59}{appendix.Alph3}%
-\contentsline {chapter}{\numberline {D}Gauss-Siedel, SOR \& LOR}{61}{appendix.Alph4}%
-\contentsline {chapter}{\numberline {E}Alternate direction implicit}{63}{appendix.Alph5}%
-\contentsline {chapter}{\numberline {F}Metodi del gradiente}{65}{appendix.Alph6}%
+\contentsline {subsubsection}{Esempio: distribuzione esponenziale}{14}{subsubsection*.5}%
+\contentsline {subsubsection}{Interpretazione geometrica del metodo}{15}{subsubsection*.6}%
+\contentsline {subsection}{\numberline {1.1.3}Trasformazioni in più dimensioni}{15}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Generazione di distribuzioni gaussiane: metodo di Box-Muller}{15}{subsection.1.1.4}%
+\contentsline {paragraph}{Calcolo del Jacobiano nella trasformazione di Box-Muller}{16}{paragraph*.8}%
+\contentsline {subsection}{\numberline {1.1.5}Osservazione conclusiva su questa parte}{17}{subsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.1.6}Rejection method}{17}{subsection.1.1.6}%
+\contentsline {paragraph}{Interpretazione geometrica:}{17}{paragraph*.9}%
+\contentsline {subsection}{\numberline {1.1.7}Metodo del rifiuto per la distribuzione Gamma}{18}{subsection.1.1.7}%
+\contentsline {subsubsection}{Funzione di confronto}{18}{subsubsection*.11}%
+\contentsline {subsubsection}{Funzione di maggiorazione}{18}{subsubsection*.12}%
+\contentsline {subsubsection}{Algoritmo}{18}{subsubsection*.14}%
+\contentsline {section}{\numberline {1.2}Integrazione Monte Carlo}{20}{section.1.2}%
+\contentsline {subsubsection}{Interpretazione}{20}{subsubsection*.15}%
+\contentsline {subsubsection}{Esempio: area di un cerchio}{20}{subsubsection*.17}%
+\contentsline {subsubsection}{Esempio: disco con foro}{21}{subsubsection*.19}%
+\contentsline {chapter}{\numberline {2}Ricerca degli zeri di una funzione}{27}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduzione}{27}{section.2.1}%
+\contentsline {paragraph}{Esempio introduttivo:}{27}{paragraph*.21}%
+\contentsline {paragraph}{Casi difficili e comportamenti patologici:}{28}{paragraph*.23}%
+\contentsline {section}{\numberline {2.2}Metodo di bisezione}{28}{section.2.2}%
+\contentsline {paragraph}{Idea del metodo}{28}{paragraph*.25}%
+\contentsline {paragraph}{Stima dell'errore: }{29}{paragraph*.26}%
+\contentsline {paragraph}{Esempio numerico del metodo di bisezione: }{29}{paragraph*.27}%
+\contentsline {subsection}{\numberline {2.2.1}Osservazioni sul metodo di bisezione}{29}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Metodo di Newton-Raphson}{30}{section.2.3}%
+\contentsline {paragraph}{Esempio numerico: }{30}{paragraph*.29}%
+\contentsline {subsection}{\numberline {2.3.1}Analisi dell'errore}{30}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Osservazioni sul metodo di Newton}{31}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Metodi per polinomi}{31}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Generalizzazione a più dimensioni}{32}{section.2.5}%
+\contentsline {paragraph}{Esempio bidimensionale: }{32}{paragraph*.32}%
+\contentsline {section}{\numberline {2.6}Conclusioni}{33}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Analisi numerica nell'integrazione}{35}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduzione}{35}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Formule di Newton–Cotes su intervallo singolo}{36}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Alcune formule locali}{36}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Intervalli estesi}{37}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Valutazione dell’errore e formula esatta dei trapezi}{40}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Integrazione di Romberg}{40}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Quadrature Gaussiane}{42}{subsection.3.1.6}%
+\contentsline {subsubsection}{Tabella Gauss–Legendre}{44}{subsubsection*.35}%
+\contentsline {subsection}{\numberline {3.1.7}Integrali impropri}{44}{subsection.3.1.7}%
+\contentsline {subsubsection}{Limiti infiniti}{44}{subsubsection*.36}%
+\contentsline {subsubsection}{Singolarità integrabile all’estremo}{44}{subsubsection*.37}%
+\contentsline {subsubsection}{Singolarità interna}{45}{subsubsection*.38}%
+\contentsline {subsubsection}{Singolarità di tipo Cauchy}{45}{subsubsection*.39}%
+\contentsline {subsubsection}{Formule aperte}{46}{subsubsection*.40}%
+\contentsline {chapter}{\numberline {4}Integrazione numerica delle Equazioni Differenziali Ordinarie (ODE)}{47}{chapter.4}%
+\contentsline {subsection}{\numberline {4.0.1}Metodi multi-step}{48}{subsection.4.0.1}%
+\contentsline {subsubsection}{Metodi impliciti}{48}{subsubsection*.41}%
+\contentsline {subsubsection}{Famiglie di metodi multistep di tipo Adams}{48}{subsubsection*.42}%
+\contentsline {subsubsection}{analisi dell'ordine di errore}{49}{subsubsection*.45}%
+\contentsline {subsubsection}{stabilità, radici caratteristiche, regioni di A-stabilità}{50}{subsubsection*.47}%
+\contentsline {subsubsection}{Confronto di metodi multi-step}{52}{subsubsection*.50}%
+\contentsline {subsection}{\numberline {4.0.2}Metodi one-step}{53}{subsection.4.0.2}%
+\contentsline {subsubsection}{metodi Runge-Kutta}{53}{subsubsection*.53}%
+\contentsline {subsubsection}{Controllo del passo mediante Richardson}{55}{subsubsection*.56}%
+\contentsline {subsubsection}{Il metodo del midpoint modificato}{55}{subsubsection*.58}%
+\contentsline {subsubsection}{Richardson extrapolation e metodo di Burlisch--Stoer}{56}{subsubsection*.59}%
+\contentsline {subsubsection}{Metodi Runge-Kutta Hamiltoniani}{57}{subsubsection*.61}%
+\contentsline {paragraph}{Idea generale.}{57}{paragraph*.62}%
+\contentsline {paragraph}{\emph {'Velocity Verlet'} / \emph {'Leapfrog'}}{57}{paragraph*.63}%
+\contentsline {paragraph}{Esempio di schema simplettico.}{58}{paragraph*.64}%
+\contentsline {paragraph}{Esempio pratico.}{58}{paragraph*.65}%
+\contentsline {subsection}{\numberline {4.0.3}Equazioni stiff}{58}{subsection.4.0.3}%
+\contentsline {paragraph}{Esempio semplice.}{58}{paragraph*.66}%
+\contentsline {paragraph}{Come affrontare il problema?}{58}{paragraph*.67}%
+\contentsline {subsection}{\numberline {4.0.4}Boundary Value Problems (BVP)}{59}{subsection.4.0.4}%
+\contentsline {subsubsection}{Shooting method}{59}{subsubsection*.68}%
+\contentsline {subsubsection}{metodo di rilassamento / differenze finite}{59}{subsubsection*.69}%
+\contentsline {chapter}{\numberline {5}Integrazione numerica di equazioni differenziali alle derivate parziali (PDEs)}{61}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduzione}{61}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Differenze finite}{62}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Flux-conservative PDEs}{63}{subsection.5.1.2}%
+\contentsline {subsubsection}{Forward Time, Centered Space}{63}{subsubsection*.70}%
+\contentsline {subsubsection}{Metodo di Lax}{64}{subsubsection*.71}%
+\contentsline {subsection}{\numberline {5.1.3}Una soluzione pratica}{64}{subsection.5.1.3}%
+\contentsline {chapter}{\numberline {A}Metodo delle differenze finite}{69}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}Algoritmo di Thomas}{73}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Metodo di Jacobi}{77}{appendix.Alph3}%
+\contentsline {subsection}{\numberline {C.0.1}Errore}{80}{subsection.Alph3.0.1}%
+\contentsline {chapter}{\numberline {D}Gauss-Siedel, SOR \& LOR}{85}{appendix.Alph4}%
+\contentsline {chapter}{\numberline {E}Alternate direction implicit}{87}{appendix.Alph5}%
+\contentsline {chapter}{\numberline {F}Metodi del gradiente}{89}{appendix.Alph6}%

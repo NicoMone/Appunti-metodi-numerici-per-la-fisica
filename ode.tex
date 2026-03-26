@@ -113,22 +113,21 @@ L'idea è imporre che lo schema riproduca esattamente l'andamento di una funzion
 in modo da determinare i coefficienti che compaiono nella combinazione lineare.
 Il risultato finale è un metodo che utilizza $y'_n$ e $y'_{n-1}$ per approssimare
 $y_{n+1}$, con un errore globale dell'ordine di $h^3$.
-\begin{multicols}{2}
 	
-	Per la funzione $y'=2x$, con condizione iniziale $y(0)=0$, la soluzione esatta $y=x^2$ ma risolvendola con uno schema $y_{n+1}=y_n+2hx_n$ vediamo che ridurre il passo di integrazione $h$ non porta ad una precisione arbitrariamente alta. Esiste quindi un valore ottimale del passo $h$ che minimizza l'errore totale come si vede in fig.\ref{fig:errore1}. Infatti, l'errore totale è composto da:
-	\begin{itemize}
-		\item l'errore di troncamento, che decresce all'aumentare della risoluzione,
-		\item l'errore numerico di roundoff, che invece cresce se $h$ è troppo piccolo,
+Per la funzione $y'=2x$, con condizione iniziale $y(0)=0$, la soluzione esatta $y=x^2$ ma risolvendola con uno schema $y_{n+1}=y_n+2hx_n$ vediamo che ridurre il passo di integrazione $h$ non porta ad una precisione arbitrariamente alta. Esiste quindi un valore ottimale del passo $h$ che minimizza l'errore totale come si vede in fig.\ref{fig:errore1}. Infatti, l'errore totale è composto da:
+
+\begin{itemize}
+	\item l'errore di troncamento, che decresce all'aumentare della risoluzione,
+	\item l'errore numerico di roundoff, che invece cresce se $h$ è troppo piccolo,
 		poiché aumenta il numero totale di operazioni.
-	\end{itemize}
+\end{itemize}
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.8\linewidth]{img/errorh.png}
-		\caption{errore di un metodo di Eulero $y_{n+1}=y_n+2hx_n$ in funzione di $h$, usato per integrare la funzione $y'=2x$ con condizione iniziale $y(0)=0$}
-		\label{fig:errore1}
-	\end{figure}
-\end{multicols}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/errorh.png}
+	\caption{errore di un metodo di Eulero $y_{n+1}=y_n+2hx_n$ in funzione di $h$, usato per integrare la funzione $y'=2x$ con condizione iniziale $y(0)=0$}
+	\label{fig:errore1}
+\end{figure}
 
 
 %
@@ -307,25 +306,24 @@ la procedura intuitiva che porta dapprima a un metodo di ordine due (RK2) e poi
 al classico metodo di ordine quattro (RK4).
 %
 
-\begin{multicols}{2}
 	
-	Prendiamo ad esempio la funzione $y(x)$ soluzione dell'ODE $y'=f(x, \, y(x))=2\sqrt{-y}$ con condizione iniziale $y(0)=-1$, costruiamo l'approssimazione supponendo di essere arrivati ad integrare fino ad un punto $x_0$ e vogliamo proseguire di $h$:
-	\begin{enumerate}
+Prendiamo ad esempio la funzione $y(x)$ soluzione dell'ODE $y'=f(x, \, y(x))=2\sqrt{-y}$ con condizione iniziale $y(0)=-1$, costruiamo l'approssimazione supponendo di essere arrivati ad integrare fino ad un punto $x_0$ e vogliamo proseguire di $h$:
+\begin{enumerate}
 		\item come prima cosa si calcola la derivata nel punto $x_0$, $y'(x_0) = f(x, \, y(x))_{|x=x_0}$, come si vede in verde in figura;
 		\item ci si sposta di $\color{green}{k_1} \color{black}= h f(t,\, y)$ arrivando nel punto di ascissa $x_f=x_0+h$ ma non lungo la soluzione poichè si è proseguiti linearmente lungo la retta verde, qui si calcola $\color{magenta}{k_2} \color{black}= h f(t_n + h,\,  y_n + \color{green}{k_1} \color{black})$, come si vede in magenta in figura;
 		\item si prende la media dei due spostamenti sulle ordinate $k_1$ e $k_2$:
 		\[\boxed{y_{n+1} = y_n + \frac{\color{green}{k_1} \color{black}{+} \color{magenta}{k_2}}{2}} \ \ .\]
-	\end{enumerate}
+\end{enumerate}
 	
 	
-	\begin{figure}[H]
+\begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{img/example_RK.png}
 		\caption{esempio visuale di applicazione di Runge-Kutta}
 		\label{fig:placeholder}
-	\end{figure}
-	
-\end{multicols}
+\end{figure}
+
+
 
 I passaggi spiegati sono la base del Runge-Kutta e corrispondono ad un metodo del secondo ordine.
 
@@ -676,8 +674,9 @@ A questo punto possiamo dare un guess iniziale $y^{(0)} $ ed iterare.
 
 %
 %
-\newpage
-\section{Equazioni differenziali alle derivate parziali (PDE)}
+\chapter{Integrazione numerica di equazioni differenziali alle derivate parziali (PDEs)}
+
+\section{Introduzione}
 Esistono principalmente tre tipi di equazioni differenziali alle derivate parziali (PDE, \emph{partial differential equation}), la differenza computazionalmente sta nel caso in cui abbiamo \textbf{valori iniziali} (problema principale: stabilità) o utilizziamo \textbf{condizioni al contorno} (problema principale: efficienza):
 \begin{itemize}
 	\item \textbf{Iperboliche}: come ad esempio l'equazione delle onde 

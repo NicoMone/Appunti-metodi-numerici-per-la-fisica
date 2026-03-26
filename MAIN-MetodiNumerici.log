@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)  (format=lualatex 2026.1.21)  16 MAR 2026 17:46
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2025/dev/Debian)  (format=lualatex 2026.1.21)  24 MAR 2026 15:15
  restricted system commands enabled.
 **MAIN-MetodiNumerici.tex
 (./MAIN-MetodiNumerici.tex
@@ -1146,6 +1146,9 @@ Inserting `l3color' in `luaotfload.parse_color'.
 )
 (./MAIN-MetodiNumerici.aux
 
+LaTeX Warning: Label `lst:gamma rejection' multiply defined.
+
+
 LaTeX Warning: Label `fig:example1' multiply defined.
 
 
@@ -1153,6 +1156,42 @@ LaTeX Warning: Label `fig:placeholder' multiply defined.
 
 
 LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
+
+
+LaTeX Warning: Label ` ' multiply defined.
 
 )
 \openout1 = MAIN-MetodiNumerici.aux
@@ -1271,17 +1310,34 @@ Package hyperref Info: Link coloring ON on input line 245.
 
 [6
 
-] (./MAIN-MetodiNumerici.toc)
+] (./MAIN-MetodiNumerici.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 5.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+
+[7
+Missing character: There is no – (U+2013) in font ec-lmr12!
+Missing character: There is no ’ (U+2019) in font ec-lmr12!
+])
 \tf@toc=\write6
 
 \openout6 = MAIN-MetodiNumerici.toc
 
 
-[7] (./random.tex
-
-[8
-
-]
+[8] (./random.tex
 Capitolo 1.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
@@ -1290,27 +1346,12 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 
 
 [9
+
+
 Missing character: There is no – (U+2013) in font ec-lmr12!
 Missing character: There is no – (U+2013) in font ec-lmr12!
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
-
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 33
-.
-
-(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-<img/random1.png, id=234, 439.6425pt x 613.29124pt>
+<img/random1.png, id=343, 439.6425pt x 613.29124pt>
 File: img/random1.png Graphic file (type png)
 <use img/random1.png>
 Package luatex.def Info: img/random1.png  used on input line 61.
@@ -1337,17 +1378,22 @@ nput line 82.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3.
 
+Underfull \vbox (badness 3460) has occurred while \output is active []
+
+
 
 [11])
-<img/logisticcurve.png, id=300, 336.25626pt x 250.9375pt>
+<img/logisticcurve.png, id=410, 336.25626pt x 250.9375pt>
 File: img/logisticcurve.png Graphic file (type png)
 <use img/logisticcurve.png>
 Package luatex.def Info: img/logisticcurve.png  used on input line 106.
 (luatex.def)             Requested size: 184.9429pt x 138.01604pt.
 
+Overfull \vbox (1.52136pt too high) has occurred while \output is active []
+
+
 
 [12
-Missing character: There is no – (U+2013) in font ec-lmr12!
 Missing character: There is no – (U+2013) in font ec-lmr12!
 <./img/logisticcurve.png>]
 Missing character: There is no − (U+2212) in font cmr8!
@@ -1358,67 +1404,204 @@ Missing character: There is no − (U+2212) in font cmr8!
 
 [13
 Missing character: There is no – (U+2013) in font ec-lmr12!
+Missing character: There is no – (U+2013) in font ec-lmr12!
 ]
 
 [14]
 
 [15]
-
-[16])
-
-[17] (./integration.tex
-
-[18
-
-]
-Capitolo 2.
-<img/integration_1.png, id=359, 489.83pt x 283.0575pt>
-File: img/integration_1.png Graphic file (type png)
-<use img/integration_1.png>
-Package luatex.def Info: img/integration_1.png  used on input line 31.
-(luatex.def)             Requested size: 222.62206pt x 128.6445pt.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 38.
+<img/cartesian_rand_transform.png, id=460, 308.352pt x 115.632pt>
+File: img/cartesian_rand_transform.png Graphic file (type png)
+<use img/cartesian_rand_transform.png>
+Package luatex.def Info: img/cartesian_rand_transform.png  used on input line 2
+71.
+(luatex.def)             Requested size: 284.52756pt x 106.70032pt.
 
 
+[16<./img/cartesian_rand_transform.png>]
+<img/rejection.png, id=473, 889.3225pt x 650.43pt>
+File: img/rejection.png Graphic file (type png)
+<use img/rejection.png>
+Package luatex.def Info: img/rejection.png  used on input line 352.
+(luatex.def)             Requested size: 196.32384pt x 143.58134pt.
 
-[19<./img/integration_1.png>]
 
-[20
-Missing character: There is no – (U+2013) in font ec-lmbx12!
-] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+Package caption Warning: \label without proper reference on input line 351.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `rejection' on page 17 undefined on input line 362.
+
+
+Overfull \vbox (14.66826pt too high) has occurred while \output is active []
+
+
+[17<./img/rejection.png>]
+<img/gamma_function.png, id=483, 848.16875pt x 615.29875pt>
+File: img/gamma_function.png Graphic file (type png)
+<use img/gamma_function.png>
+Package luatex.def Info: img/gamma_function.png  used on input line 421.
+(luatex.def)             Requested size: 170.71652pt x 123.8462pt.
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-) (./trapezi.c
+)
 
-[21]
+[18<./img/gamma_function.png>] (./GAMDEV.c)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[22])
-Overfull \hbox (65.23184pt too wide) detected at line 133
+[19
+Missing character: There is no π (U+03C0) in font ec-lmtt10!
+]
+<img/MonteCarloIntegration.png, id=542, 532.99126pt x 413.545pt>
+File: img/MonteCarloIntegration.png Graphic file (type png)
+<use img/MonteCarloIntegration.png>
+Package luatex.def Info: img/MonteCarloIntegration.png  used on input line 471.
+
+(luatex.def)             Requested size: 199.16928pt x 154.53pt.
+<img/pie.png, id=543, 453.695pt x 445.665pt>
+File: img/pie.png Graphic file (type png)
+<use img/pie.png>
+Package luatex.def Info: img/pie.png  used on input line 514.
+(luatex.def)             Requested size: 142.26378pt x 139.74599pt.
+ [20<./img/MonteCarloIntegration.png>]
+<img/MCintegral.png, id=555, 548.0475pt x 529.98pt>
+File: img/MCintegral.png Graphic file (type png)
+<use img/MCintegral.png>
+Package luatex.def Info: img/MCintegral.png  used on input line 555.
+(luatex.def)             Requested size: 170.71652pt x 165.09268pt.
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(./MonteCarloIntegration-HoledDisk.py
+
+[21<./img/pie.png><./img/MCintegral.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[22
+Missing character: There is no ∫ (U+222B) in font ec-lmtt10!
+Missing character: There is no ∫ (U+222B) in font ec-lmtt10!
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[24
+Missing character: There is no π (U+03C0) in font ec-lmtt10!
+]))
+
+[25
+Missing character: There is no ∫ (U+222B) in font ec-lmtt10!
+Missing character: There is no ∫ (U+222B) in font ec-lmtt10!
+] (./roots.tex
+
+[26
+
+]
+Capitolo 2.
+<img/roots1.png, id=755, 823.075pt x 566.115pt>
+File: img/roots1.png Graphic file (type png)
+<use img/roots1.png>
+Package luatex.def Info: img/roots1.png  used on input line 30.
+(luatex.def)             Requested size: 204.85974pt x 140.89781pt.
+
+
+[27<./img/roots1.png>]
+<img/roots2.png, id=763, 748.7975pt x 528.97626pt>
+File: img/roots2.png Graphic file (type png)
+<use img/roots2.png>
+Package luatex.def Info: img/roots2.png  used on input line 60.
+(luatex.def)             Requested size: 199.16928pt x 140.70268pt.
+
+
+[28<./img/roots2.png>]
+<img/roots14.png, id=772, 586.19pt x 414.54875pt>
+File: img/roots14.png Graphic file (type png)
+<use img/roots14.png>
+Package luatex.def Info: img/roots14.png  used on input line 143.
+(luatex.def)             Requested size: 199.16928pt x 140.84982pt.
+ [29<./img/roots14.png>]
+<img/roots15.png, id=781, 629.35126pt x 441.65pt>
+File: img/roots15.png Graphic file (type png)
+<use img/roots15.png>
+Package luatex.def Info: img/roots15.png  used on input line 191.
+(luatex.def)             Requested size: 199.16928pt x 139.76743pt.
+
+
+[30<./img/roots15.png>]
+<img/roots16.png, id=792, 833.1125pt x 591.20876pt>
+File: img/roots16.png Graphic file (type png)
+<use img/roots16.png>
+Package luatex.def Info: img/roots16.png  used on input line 266.
+(luatex.def)             Requested size: 170.71652pt x 121.14444pt.
+
+
+[31<./img/roots16.png>]
+<img/roots18.png, id=801, 803.0pt x 519.9425pt>
+File: img/roots18.png Graphic file (type png)
+<use img/roots18.png>
+Package luatex.def Info: img/roots18.png  used on input line 350.
+(luatex.def)             Requested size: 170.71652pt x 110.53987pt.
+
+
+[32<./img/roots18.png>])
+
+[33] (./integration.tex
+
+[34
+
+]
+Capitolo 3.
+<img/integration_1.png, id=820, 489.83pt x 283.0575pt>
+File: img/integration_1.png Graphic file (type png)
+<use img/integration_1.png>
+Package luatex.def Info: img/integration_1.png  used on input line 33.
+(luatex.def)             Requested size: 222.62206pt x 128.6445pt.
+
+
+[35<./img/integration_1.png>]
+
+[36
+Missing character: There is no – (U+2013) in font ec-lmbx12!
+] (./trapezi.c
+
+[37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[38])
+Overfull \hbox (65.23184pt too wide) detected at line 139
 [][]  \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \O
 ML/cmm/m/it/12 dx  \OT1/cmr/m/n/12 =  \OML/cmm/m/it/12 h  []  \OT1/cmr/m/n/12 +  \OMS/cmsy/m/n/12 O  []   \OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (41.10323pt too wide) detected at line 159
+
+[39]
+Overfull \hbox (41.10323pt too wide) detected at line 165
 [][] \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) \OM
 L/cmm/m/it/12 dx  \OT1/cmr/m/n/12 =  \OML/cmm/m/it/12 h  []  \OMS/cmsy/m/n/12 ^^
 @  [] []  ^^@  []  []  ^^@  []
  []
 
+(./Romberg.c
 
-
-[23
+[40
 Missing character: There is no ’ (U+2019) in font ec-lmbx12!
-] (./Romberg.c
-
-[24
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
@@ -1428,193 +1611,191 @@ Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
-Missing character: There is no ’ (U+2019) in font ec-lmtt10!
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[25
+[41
+Missing character: There is no ’ (U+2019) in font ec-lmtt10!
 Missing character: There is no ’ (U+2019) in font ec-lmtt10!
 Missing character: There is no ’ (U+2019) in font ec-lmtt10!
 ])
 
-[26]
+[42]
 
-[27]
+[43]
 
-[28
+[44
 Missing character: There is no – (U+2013) in font ec-lmbx12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmbx12!
 ]
 
-[29
+[45
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 Missing character: There is no ’ (U+2019) in font ec-lmr12!
 ])
 
-[30] (./ode.tex
-Capitolo 3.
+[46] (./ode.tex
+Capitolo 4.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 26.
 
 
 
-[31
+[47
 
 ]
 
-[32]
-<img/errorh.png, id=576, 417.56pt x 296.10625pt>
+[48]
+<img/errorh.png, id=1035, 417.56pt x 296.10625pt>
 File: img/errorh.png Graphic file (type png)
 <use img/errorh.png>
 Package luatex.def Info: img/errorh.png  used on input line 127.
-(luatex.def)             Requested size: 178.09831pt x 126.29756pt.
- [33]
+(luatex.def)             Requested size: 364.19667pt x 258.27904pt.
 
-[34<./img/errorh.png>]
-Overfull \hbox (4.60747pt too wide) detected at line 186
+
+[49]
+
+[50<./img/errorh.png>]
+Overfull \hbox (4.60747pt too wide) detected at line 185
 \OML/cmm/m/it/12 [] \OT1/cmr/m/n/12 = []    \OML/cmm/m/it/12 ;
  []
 
-<img/venn.png, id=595, 608.2725pt x 474.77374pt>
+<img/venn.png, id=1054, 608.2725pt x 474.77374pt>
 File: img/venn.png Graphic file (type png)
 <use img/venn.png>
-Package luatex.def Info: img/venn.png  used on input line 191.
+Package luatex.def Info: img/venn.png  used on input line 190.
 (luatex.def)             Requested size: 155.83475pt x 121.63438pt.
-[35<./img/venn.png>]
-<img/stability.png, id=604, 530.98375pt x 380.42125pt>
+
+
+[51<./img/venn.png>]
+<img/stability.png, id=1063, 530.98375pt x 380.42125pt>
 File: img/stability.png Graphic file (type png)
 <use img/stability.png>
-Package luatex.def Info: img/stability.png  used on input line 216.
+Package luatex.def Info: img/stability.png  used on input line 215.
 (luatex.def)             Requested size: 222.62206pt x 159.4972pt.
-<img/example.png, id=605, 370.38374pt x 264.99pt>
+<img/example.png, id=1064, 370.38374pt x 264.99pt>
 File: img/example.png Graphic file (type png)
 <use img/example.png>
-Package luatex.def Info: img/example.png  used on input line 241.
+Package luatex.def Info: img/example.png  used on input line 240.
 (luatex.def)             Requested size: 199.16928pt x 142.49808pt.
-<img/example2.png, id=606, 369.38pt x 262.9825pt>
+<img/example2.png, id=1065, 369.38pt x 262.9825pt>
 File: img/example2.png Graphic file (type png)
 <use img/example2.png>
-Package luatex.def Info: img/example2.png  used on input line 248.
+Package luatex.def Info: img/example2.png  used on input line 247.
 (luatex.def)             Requested size: 199.16928pt x 141.79976pt.
 
 
-[36<./img/stability.png><./img/example.png><./img/example2.png>]
-<img/example_RK.png, id=618, 751.80875pt x 530.98375pt>
+[52<./img/stability.png><./img/example.png><./img/example2.png>]
+<img/example_RK.png, id=1077, 751.80875pt x 530.98375pt>
 File: img/example_RK.png Graphic file (type png)
 <use img/example_RK.png>
-Package luatex.def Info: img/example_RK.png  used on input line 323.
-(luatex.def)             Requested size: 222.62206pt x 157.2303pt.
- [37]
-<img/rk4.png, id=627, 759.83875pt x 582.175pt>
+Package luatex.def Info: img/example_RK.png  used on input line 321.
+(luatex.def)             Requested size: 455.24411pt x 321.53378pt.
+
+
+[53]
+<img/rk4.png, id=1086, 759.83875pt x 582.175pt>
 File: img/rk4.png Graphic file (type png)
 <use img/rk4.png>
-Package luatex.def Info: img/rk4.png  used on input line 348.
+Package luatex.def Info: img/rk4.png  used on input line 346.
 (luatex.def)             Requested size: 178.09831pt x 136.45581pt.
 
 
-[38<./img/example_RK.png><./img/rk4.png>]
+[54<./img/example_RK.png><./img/rk4.png>]
 
-[39]
-<img/richardson-extr.png, id=644, 597.23125pt x 496.85625pt>
+[55]
+<img/richardson-extr.png, id=1103, 597.23125pt x 496.85625pt>
 File: img/richardson-extr.png Graphic file (type png)
 <use img/richardson-extr.png>
-Package luatex.def Info: img/richardson-extr.png  used on input line 466.
+Package luatex.def Info: img/richardson-extr.png  used on input line 464.
 (luatex.def)             Requested size: 178.09831pt x 148.1634pt.
 
-Underfull \vbox (badness 1082) has occurred while \output is active []
 
+[56<./img/richardson-extr.png>]
 
-
-[40<./img/richardson-extr.png>]
-
-[41]
-Overfull \hbox (3.73555pt too wide) in paragraph at lines 593--594
+[57]
+Overfull \hbox (3.73555pt too wide) in paragraph at lines 591--592
 [][]\T1/lmr/bx/n/12 Co-me af-fron-ta-re il pro-ble-ma?[] \T1/lmr/m/n/12 Af-fron-
 tia-mo il pro-ble-ma gra-zie a me-to-di impliciti/semi-
  []
 
 
 
-[42]
-Overfull \hbox (1.98227pt too wide) in paragraph at lines 622--623
+[58]
+Overfull \hbox (1.98227pt too wide) in paragraph at lines 620--621
 []\T1/lmr/m/n/12 Il pro-ble-ma che si ve-ri-fi-ca è che da-ta la ti-pi-ca so-lu
 -zio-ne $\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 e[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A sin\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !t\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 B cos\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 !t\OT1/cmr/m/n/12 ))$\T1/lmr/m/n/12 ,
  []
 
 
 
-[43]
+[59]
 
-[44]
-Overfull \hbox (7.90707pt too wide) in paragraph at lines 680--680
-|[]\T1/lmr/bx/n/17.28 Equa-zio-ni dif-fe-ren-zia-li al-le de-ri-va-te par-zia-li
- (PDE)| 
- []
+[60]
+Capitolo 5.
 
 
+[61
 
-[45]
-Underfull \hbox (badness 10000) in paragraph at lines 744--746
+]
+Underfull \hbox (badness 10000) in paragraph at lines 743--745
 
  []
 
 
-Overfull \hbox (58.2254pt too wide) detected at line 750
+
+[62]
+Overfull \hbox (58.2254pt too wide) detected at line 749
 \OML/cmm/m/it/12 u[] \OT1/cmr/m/n/12 = [] [] + \OML/cmm/m/it/12 :::dx[]u[]     
      u[] \OT1/cmr/m/n/12 = [] [] + \OML/cmm/m/it/12 :::dx[]y[]
  []
 
 
-
-[46]
-Underfull \hbox (badness 10000) in paragraph at lines 766--768
+Underfull \hbox (badness 10000) in paragraph at lines 765--767
 
  []
 
 
-Overfull \hbox (9.41286pt too wide) in paragraph at lines 779--781
-\T1/lmr/m/n/12 A par-ti-re da eq.[][]3.11[][] svi-lup-pia-mo la so-lu-zio-ne chi
+Overfull \hbox (9.41286pt too wide) in paragraph at lines 778--780
+\T1/lmr/m/n/12 A par-ti-re da eq.[][]4.11[][] svi-lup-pia-mo la so-lu-zio-ne chi
 a-ma-ta \T1/lmr/m/it/12 for-ward ti-me cen-te-red spa-ce \T1/lmr/m/n/12 (\T1/lm
 r/bx/n/12 FTCS\T1/lmr/m/n/12 ),
  []
 
 
 
-[47]
-<img/LAX.jpg, id=711, 187.902pt x 184.2885pt>
+[63]
+<img/LAX.jpg, id=1170, 187.902pt x 184.2885pt>
 File: img/LAX.jpg Graphic file (type jpg)
 <use img/LAX.jpg>
-Package luatex.def Info: img/LAX.jpg  used on input line 803.
+Package luatex.def Info: img/LAX.jpg  used on input line 802.
 (luatex.def)             Requested size: 111.31102pt x 109.17075pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 799--806
+Underfull \hbox (badness 10000) in paragraph at lines 798--805
 
  []
 
-(./test2.cpp
 
-[48<./img/LAX.jpg>]
+
+[64<./img/LAX.jpg>] (./test2.cpp
+
+[65]) (./test3.cpp
+
+[66]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[49]) (./test3.cpp
+[67]))
 
-[50]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[51]))
-
-[52] (./Appendix-A-Differenze-Finite.tex
+[68] (./Appendix-A-Differenze-Finite.tex
 Appendice A.
-<img/finitedifferences.png, id=873, 602.25pt x 317.185pt>
+<img/finitedifferences.png, id=1337, 602.25pt x 317.185pt>
 File: img/finitedifferences.png Graphic file (type png)
 <use img/finitedifferences.png>
 Package luatex.def Info: img/finitedifferences.png  used on input line 47.
@@ -1624,81 +1805,175 @@ Overfull \vbox (9.97214pt too high) has occurred while \output is active []
 
 
 
-[53
+[69
 
 <./img/finitedifferences.png>]
 
-[54]) (./Appendix-B-Thomas-algorithm.tex
+[70]) (./Appendix-B-Thomas-algorithm.tex
 
-[55]
+[71]
 
-[56
+[72
 
 ]
 Appendice B.
-<img/ryzen.png, id=902, 503.8825pt x 367.3725pt>
+
+
+[73]
+
+[74]
+<img/ryzen.png, id=1375, 503.8825pt x 367.3725pt>
 File: img/ryzen.png Graphic file (type png)
 <use img/ryzen.png>
-Package luatex.def Info: img/ryzen.png  used on input line 6.
+Package luatex.def Info: img/ryzen.png  used on input line 134.
 (luatex.def)             Requested size: 170.71652pt x 124.46774pt.
 ) (./Appendix-C-Jacobi-method.tex
 
-[57<./img/ryzen.png>]
+[75<./img/ryzen.png>]
 
-[58
+[76
 
 ]
 Appendice C.
-<img/graph-connected.png, id=913, 183.68625pt x 184.69pt>
+
+
+[77]
+
+[78]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 156.
+
+
+
+[79]
+
+[80]
+<img/graph-connected.png, id=1436, 183.68625pt x 184.69pt>
 File: img/graph-connected.png Graphic file (type png)
 <use img/graph-connected.png>
-Package luatex.def Info: img/graph-connected.png  used on input line 5.
+Package luatex.def Info: img/graph-connected.png  used on input line 227.
 (luatex.def)             Requested size: 170.71652pt x 171.66127pt.
-<img/graph-not-connected.png, id=914, 165.61874pt x 164.615pt>
+<img/graph-not-connected.png, id=1437, 165.61874pt x 164.615pt>
 File: img/graph-not-connected.png Graphic file (type png)
 <use img/graph-not-connected.png>
-Package luatex.def Info: img/graph-not-connected.png  used on input line 11.
+Package luatex.def Info: img/graph-not-connected.png  used on input line 233.
 (luatex.def)             Requested size: 170.71652pt x 169.69098pt.
-<img/Jacobi.png, id=915, 450.68375pt x 452.69125pt>
+
+
+[81<./img/graph-connected.png><./img/graph-not-connected.png>]
+
+[82]
+<img/Jacobi.png, id=1462, 450.68375pt x 452.69125pt>
 File: img/Jacobi.png Graphic file (type png)
 <use img/Jacobi.png>
-Package luatex.def Info: img/Jacobi.png  used on input line 17.
+Package luatex.def Info: img/Jacobi.png  used on input line 340.
 (luatex.def)             Requested size: 170.71652pt x 171.47876pt.
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
+) (./Appendix-D-GS-SOR-LOR.tex
 
+[83<./img/Jacobi.png>]
 
+[84
 
-[59<./img/graph-connected.png><./img/graph-not-connected.png>]
-(./Appendix-D-GS-SOR-LOR.tex
-
-[60<./img/Jacobi.png>]
+]
 Appendice D.
-) (./Appendix-E-Alternate-Direction-Implicit.tex
+<img/gs1.png, id=1476, 904.37875pt x 477.785pt>
+File: img/gs1.png Graphic file (type png)
+<use img/gs1.png>
+Package luatex.def Info: img/gs1.png  used on input line 4.
+(luatex.def)             Requested size: 142.26378pt x 75.15675pt.
+<img/gs2.png, id=1477, 898.35625pt x 258.9675pt>
+File: img/gs2.png Graphic file (type png)
+<use img/gs2.png>
+Package luatex.def Info: img/gs2.png  used on input line 10.
+(luatex.def)             Requested size: 142.26378pt x 41.00887pt.
+<img/gs3.png, id=1478, 681.54625pt x 389.455pt>
+File: img/gs3.png Graphic file (type png)
+<use img/gs3.png>
+Package luatex.def Info: img/gs3.png  used on input line 16.
+(luatex.def)             Requested size: 142.26378pt x 81.29472pt.
+<img/gs4.png, id=1479, 618.31pt x 312.16624pt>
+File: img/gs4.png Graphic file (type png)
+<use img/gs4.png>
+Package luatex.def Info: img/gs4.png  used on input line 23.
+(luatex.def)             Requested size: 142.26378pt x 71.8253pt.
+<img/gs5.png, id=1480, 607.26875pt x 319.1925pt>
+File: img/gs5.png Graphic file (type png)
+<use img/gs5.png>
+Package luatex.def Info: img/gs5.png  used on input line 29.
+(luatex.def)             Requested size: 142.26378pt x 74.77646pt.
 
-[61
 
-]
+[85<./img/gs1.png><./img/gs2.png><./img/gs3.png><./img/gs4.png>]
+<img/gs6.png, id=1493, 762.85pt x 407.5225pt>
+File: img/gs6.png Graphic file (type png)
+<use img/gs6.png>
+Package luatex.def Info: img/gs6.png  used on input line 35.
+(luatex.def)             Requested size: 142.26378pt x 75.99365pt.
+)
+(./Appendix-E-Alternate-Direction-Implicit.tex
 
-[62
-
-]
+[86<./img/gs5.png><./img/gs6.png>]
 Appendice E.
+<img/exampleADI.png, id=1503, 761.84625pt x 232.87pt>
+File: img/exampleADI.png Graphic file (type png)
+<use img/exampleADI.png>
+Package luatex.def Info: img/exampleADI.png  used on input line 5.
+(luatex.def)             Requested size: 142.26378pt x 43.4818pt.
 ) (./Appendix-F-Gradient-methods.tex
 
-[63]
+[87
 
-[64
+<./img/exampleADI.png>]
+
+[88
 
 ]
 Appendice F.
+<img/gradient1.png, id=1514, 620.3175pt x 260.975pt>
+File: img/gradient1.png Graphic file (type png)
+<use img/gradient1.png>
+Package luatex.def Info: img/gradient1.png  used on input line 5.
+(luatex.def)             Requested size: 142.26378pt x 59.85175pt.
+<img/gradient2.png, id=1515, 607.26875pt x 406.51875pt>
+File: img/gradient2.png Graphic file (type png)
+<use img/gradient2.png>
+Package luatex.def Info: img/gradient2.png  used on input line 12.
+(luatex.def)             Requested size: 142.26378pt x 95.23416pt.
+<img/gradient3.png, id=1516, 993.7125pt x 428.60126pt>
+File: img/gradient3.png Graphic file (type png)
+<use img/gradient3.png>
+Package luatex.def Info: img/gradient3.png  used on input line 19.
+(luatex.def)             Requested size: 142.26378pt x 61.35753pt.
+<img/gradient4.png, id=1517, 850.17625pt x 529.98pt>
+File: img/gradient4.png Graphic file (type png)
+<use img/gradient4.png>
+Package luatex.def Info: img/gradient4.png  used on input line 26.
+(luatex.def)             Requested size: 142.26378pt x 88.6802pt.
+<img/gradient5.png, id=1518, 512.91624pt x 505.89pt>
+File: img/gradient5.png Graphic file (type png)
+<use img/gradient5.png>
+Package luatex.def Info: img/gradient5.png  used on input line 33.
+(luatex.def)             Requested size: 142.26378pt x 140.31279pt.
+
+
+[89<./img/gradient1.png><./img/gradient2.png><./img/gradient3.png><./img/gradien
+t4.png>]
+<img/gradient6.png, id=1531, 976.64874pt x 207.77625pt>
+File: img/gradient6.png Graphic file (type png)
+<use img/gradient6.png>
+Package luatex.def Info: img/gradient6.png  used on input line 40.
+(luatex.def)             Requested size: 142.26378pt x 30.2647pt.
 )
 
-[65] (./MAIN-MetodiNumerici.aux)
+[90<./img/gradient5.png><./img/gradient6.png>] (./MAIN-MetodiNumerici.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1709,48 +1984,62 @@ Package rerunfilecheck Warning: File `MAIN-MetodiNumerici.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `MAIN-MetodiNumerici.out':
-(rerunfilecheck)             Before: 9F275FA9C08CBD1FDB546891FC410BA1;8447
-(rerunfilecheck)             After:  27DCB501CD42ACAF33985359CD077D8C;8973.
+(rerunfilecheck)             Before: 0D3E4E98E234092E3CCCB826B3BC474C;10384
+(rerunfilecheck)             After:  7B8A10FDC02C7B214886790510908B60;10627.
 )
 
 Here is how much of LuaTeX's memory you used:
- 37736 strings out of 475512
- 745704,1648299 words of node,token memory allocated
- 2514 words of node memory still in use:
-   32 hlist, 2 vlist, 14 rule, 5 glue, 4 kern, 1 glyph, 458 attribute, 66 glue_s
-pec, 267 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:7,2:9583,3:480,4:17602,5:13473,6:108,7:16989,8:87,9:33816,10:4
-3,11:1257
- 59257 multiletter control sequences out of 65536+600000
- 73 fonts using 4737271 bytes
+ 38946 strings out of 475512
+ 745687,1648299 words of node,token memory allocated
+ 3221 words of node memory still in use:
+   32 hlist, 2 vlist, 14 rule, 2 glue, 4 kern, 1 glyph, 701 attribute, 66 glue_s
+pec, 388 attribute_list, 2 write, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 1:9,2:9031,3:487,4:17286,5:13218,6:113,7:18909,8:87,9:33150,10:4
+3,11:1241
+ 60023 multiletter control sequences out of 65536+600000
+ 86 fonts using 5536983 bytes
  98i,14n,100p,1207b,2022s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cme
-x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri1
-0.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmtti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb>
-Output written on MAIN-MetodiNumerici.pdf (65 pages, 1275418 bytes).
 
-PDF statistics: 1062 PDF objects out of 1200 (max. 8388607)
- 900 compressed objects within 9 object streams
- 497 named destinations out of 1000 (max. 131072)
- 552 words of extra memory for PDF output out of 10000 (max. 100000000)
+warning  (pdf backend): unreferenced destination with name 'equation.4.12'
+
+warning  (pdf backend): unreferenced destination with name 'equation.4.11'
+
+warning  (pdf backend): unreferenced destination with name 'subsection.4.1.3'
+
+warning  (pdf backend): unreferenced destination with name 'subsection.4.1.2'
+
+warning  (pdf backend): unreferenced destination with name 'subsection.4.1.1'
+
+warning  (pdf backend): unreferenced destination with name 'section.4.1'
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvip
+s/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+bx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmt
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb>
+Output written on MAIN-MetodiNumerici.pdf (90 pages, 3717184 bytes).
+
+PDF statistics: 1666 PDF objects out of 1728 (max. 8388607)
+ 1420 compressed objects within 15 object streams
+ 846 named destinations out of 1000 (max. 131072)
+ 664 words of extra memory for PDF output out of 10000 (max. 100000000)
 
