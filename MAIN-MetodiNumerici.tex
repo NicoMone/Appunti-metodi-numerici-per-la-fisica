@@ -13,7 +13,9 @@
 \usepackage[most]{tcolorbox}
 \usepackage{amsthm}
 \usepackage{cancel}
+
 \newcommand{\prodscal}[2]{\vec{#1} \cdot \vec{#2}}
+\DeclareMathOperator{\tr}{tr}
 
 \usepackage{changepage}
 \usepackage{upgreek}
@@ -28,17 +30,25 @@
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{multicol}
-%\usepackage{subfigure}
+%\usepackage{subfigure} % dava problemi
 \usepackage{wrapfig}
 \usepackage{caption}
 \captionsetup{font=small}
 \usepackage{subcaption}
+
+% per gli SCRIPT
 \usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode} % Per l'ambiente pseudocodice
+
 \usepackage{color}
 \usepackage{numprint}
 \npthousandsep{\,}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
+\usepackage{enumitem} % Per liste con indentazione
+
+\usepackage{tcolorbox}
 
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -75,9 +85,6 @@
 \addto\captionsitalian{\renewcommand*\figurename{\textsc{Fig.}}}
 \addto\captionsitalian{\renewcommand*\tablename{\textsc{Tab.}}}
 
-
-% PER IMPORTARE GLI SCRIPT
-\usepackage{listings}
 
 \definecolor{lstbg}{HTML}{F7F7F7}
 \definecolor{lstframe}{HTML}{D9D9D9}

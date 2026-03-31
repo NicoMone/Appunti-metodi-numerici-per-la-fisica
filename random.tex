@@ -26,6 +26,7 @@ Un criterio empirico utile è il seguente: se due generatori diversi producono r
 	\hfill - Riccardo Mannella
 \end{quote}
 
+\vspace{0.5cm}
 \subsection{Generatori congruenziali lineari}
 
 Uno dei generatori più elementari e diffusi è il \emph{linear congruential generator}. La sequenza viene costruita tramite la relazione ricorsiva:
@@ -68,7 +69,7 @@ Questo significa che i punti tridimensionali generati dal metodo si dispongono s
 La rappresentazione grafica mostra chiaramente che i punti non riempiono uniformemente lo spazio tridimensionale, ma si dispongono su un insieme relativamente piccolo di piani.
 
 
-
+\vspace{0.5cm}
 \subsection{Combinazione di generatori}
 
 Una possibile strategia per migliorare le proprietà statistiche dei generatori congruenziali consiste nel combinare più generatori tra loro.
@@ -82,7 +83,7 @@ Se la velocità di esecuzione è il fattore principale, è possibile utilizzare 
 	label={lst:combinazione generatori}]{RAN1.f90}
 
 
-
+\vspace{0.5cm}
 \subsection{Generatori basati su sistemi caotici}
 
 Un approccio alternativo consiste nello sfruttare il comportamento caotico di alcuni sistemi dinamici.
@@ -113,7 +114,7 @@ Al variare del parametro $\lambda$ il sistema in eq.(\ref{logistic map eq}) most
 Tuttavia l'utilizzo diretto di sistemi caotici come generatori pseudo–casuali presenta diversi problemi pratici. In particolare, è necessario stabilire quanto il comportamento caotico del sistema sia effettivamente adeguato per simulare una sequenza statisticamente indipendente.
 
 
-
+\vspace{0.5cm}
 \subsection{Generatori come sistemi dinamici a molti stati}
 
 Un modo più efficace per costruire generatori pseudo–casuali consiste nel progettare sistemi dinamici con un numero elevato di stati interni.
@@ -156,6 +157,7 @@ In sostanza, assegnata la distribuzione voluta, si cerca una funzione di trasfor
 %
 %
 %
+\vspace{0.5cm}
 \subsection{Metodo della funzione cumulativa inversa}
 
 Il procedimento precedente si chiarisce riscrivendo la trasformazione in termini di funzione integrale della densità.
@@ -211,6 +213,7 @@ p(y)\,dy = e^{-y}\,dy .
 
 Si ottiene dunque la distribuzione esponenziale. 
 
+
 %
 %
 %
@@ -226,6 +229,20 @@ Geometricamente, la funzione $F(y)$ cresce dal valore minimo al valore massimo d
 
 In altre parole, il metodo della trasformazione inversa trasforma una distribuzione uniforme della probabilità cumulata in una distribuzione non uniforme della variabile fisica.
 
+\subsubsection{Esempio: tempi di decadimento}
+
+Sappiamo che quando i nuclei decadono hanno una densità di probabilità $p(t)\,=\, \lambda e^{-\lambda \, t}$ di decadere, nel senso che $p(t)\,dt$ è la probabilità di decadere nell'intervallo di tempo $t$, $t+dt$; inoltre sappiamo che la cumulativa di questa probabilità, 
+\[F(t^*)\,=\, P(T<t^*)\,=\, \int_0^{t^*} p(T)\, dT\,=\, 1-e^{-\lambda \, t^*}\]
+ci dà invece la probabilità che il nucleo sia decaduto prima dell'istante $t^*$.
+
+Partiamo quindi dalla probabilità accumulata ed scegliamo un valore $u\in[0,\, 1]$, per poi porre l'uguaglianza $1-e^{-\lambda \, t^*}=u$ che invertita restituisce $t^*=-\frac{1}{\lambda}\, \log(1-u)$. Questo passaggio equivale ad estrarre una percentuale di nuclei decaduti e a chiedersi 'quanto tempo $t^*$ si dovrebbe aspettare per vedere una frazione $u$ di nuclei decadere?'.
+
+Nonostante il processo sia poissoniano ed ogni atomo decada dopo un tempo diverso, si può continuare ad estrarre valori $u$ quanti sono gli atomi e questo ci permette trovando tutti i tempi corrispondenti di ricostruire la distribuzione esponenziale iniziale.
+
+%
+%
+%
+\vspace{0.5cm}
 \subsection{Trasformazioni in più dimensioni}
 
 Il metodo di trasformazione non è limitato al caso unidimensionale, ma si estende anche a distribuzioni in più variabili.
@@ -246,7 +263,7 @@ Questa espressione generalizza direttamente la formula unidimensionale.
 Anche qui il significato è lo stesso: la densità si modifica in funzione della deformazione locale dei volumi elementari operata dalla trasformazione.
 
 
-
+\vspace{0.5cm}
 \subsection{Generazione di distribuzioni gaussiane: metodo di Box-Muller}
 
 Un'applicazione molto importante del caso multidimensionale è la generazione di variabili gaussiane: il metodo di \href{https://www.taygeta.com/random/gaussian.html}{Box-Muller}, che permette di ottenere due variabili gaussiane indipendenti a partire da due variabili uniformi indipendenti.
@@ -283,8 +300,8 @@ x_1 = e^{-r^2/2},
 x_2 = \frac{\theta}{2\pi}.
 \]
 
-Poiché $x_1$ e $x_2$ sono uniformi e indipendenti, la loro densità congiunta è costante nel quadrato unitario:$p(x_1,x_2)=1,
-\qquad 0<x_1<1,\; 0<x_2<1$.
+Poiché $x_1$ e $x_2$ sono uniformi e indipendenti, la loro densità congiunta è costante nel quadrato unitario: $p(x_1,x_2)=1,
+\quad 0<x_1<1,\ 0<x_2<1$.
 
 
 Ora, il passaggio da $(x_1,x_2)$ a $(r,\theta)$ produce il fattore jacobiano
@@ -317,20 +334,25 @@ P(y_1,y_2)=\frac{1}{2\pi}\exp\left(-\frac{y_1^2}{2}-\frac{y_2^2}{2}\right).
 Questa è precisamente la distribuzione normale bidimensionale standard 
 con componenti indipendenti.
 
-
-
-\subsection{Osservazione conclusiva su questa parte}
+%
+%
+%
+%\vspace{0.5cm}
+\subsubsection{Osservazione conclusiva su questa parte}
 
 Riassumendo, il principio generale è il seguente: una volta ottenute variabili uniformi affidabili, si possono costruire distribuzioni non uniformi applicando trasformazioni opportune. Nel caso unidimensionale il punto chiave è l'inversione della cumulativa; nel caso multidimensionale entra in gioco il determinante jacobiano della trasformazione.
 
 Questo quadro teorico prepara direttamente al metodo di \emph{rejection}, che diventa essenziale quando l'inversa della cumulativa non è disponibile in forma trattabile.
 
-
-\subsection{Rejection method}
+%
+%
+%
+\vspace{0.5cm}
+\section{Rejection method}
 
 Il metodo del rifiuto permette di generare distribuzioni non uniformi senza richiedere il calcolo esplicito dell'integrale della densità.
 
-Si consideri una distribuzione di probabilità desiderata $p(x)$, e una funzione $f(x)$ tale che $f(x) > p(x) \quad \forall x$, l'idea è utilizzare una coppia di variabili casuali uniformi per campionare la distribuzione $p(x)$.
+Si consideri una distribuzione di probabilità desiderata $p(x)$, e una funzione $f(x)$ tale che $f(x) > p(x) \quad \forall\ x$ , l'idea è utilizzare una coppia di variabili casuali uniformi per campionare la distribuzione $p(x)$.
 
 Si procede nel seguente modo:
 
@@ -348,7 +370,7 @@ Il metodo può essere interpretato geometricamente. Si consideri il grafico dell
 
 \begin{multicols}{2}
 \begin{figure}[H]
-	\label{rejection}
+	\label{rejection img}
 	\includegraphics[width=6.9cm]{img/rejection.png}
 	\caption{rappresentazione grafica del \emph{rejection method}}
 \end{figure}
@@ -359,7 +381,7 @@ Un punto viene accettato se cade sotto la curva $p(x)$.
 
 In questo modo, i punti accettati risultano distribuiti secondo la densità desiderata.
 
-In fig.(\ref{rejection}), i punti accettati sono quelli che cadono sotto $p(x)$, mentre gli altri vengono scartati.
+In fig.(\ref{rejection img}), i punti accettati sono quelli che cadono sotto $p(x)$, mentre gli altri vengono scartati.
 \end{multicols}
 
 %
@@ -436,8 +458,10 @@ Questo procedimento è implementato, ad esempio, nella routine \texttt{GAMDEV}.
 	label={lst:gamma rejection}]{GAMDEV.c}
 
 
-
-
+%
+%
+%
+\vspace{0.5cm}
 \section{Integrazione Monte Carlo}
 
 Il metodo di integrazione Monte Carlo è strettamente collegato al metodo del rifiuto.

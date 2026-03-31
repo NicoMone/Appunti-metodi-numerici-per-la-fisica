@@ -45,13 +45,13 @@ Esistono tuttavia funzioni per le quali la localizzazione dello zero può risult
 Un esempio significativo è dato dalla funzione
 
 \[
-f(x) = 3x^2 + 1 + \frac{\ln\left[(\pi - x)^2\right]}{\pi^4}.
+f(x)\ =\ 3x^2\, +\, 1\, +\, \frac{\ln\left[(\pi - x)^2\right]}{\pi^4}.
 \]
 
 In questo caso esistono due zeri situati approssimativamente in
 
 \[
-x \approx \pi \pm 10^{-667}.
+x\ \approx\ \pi\, \pm\, 10^{-667}.
 \]
 
 \begin{figure}[H]
@@ -217,10 +217,10 @@ Si osserva una convergenza molto più rapida rispetto al metodo di bisezione.
 Per comprendere meglio la velocità di convergenza, consideriamo una radice \( x_r \) e poniamo $x = x_r + \epsilon$ , così che sviluppando la funzione:
 
 \[
-f(x + \epsilon) = f(x) + \epsilon f'(x) + \frac{\epsilon^2}{2} f''(x).
+f(x + \epsilon)\ =\ f(x)\, +\, \epsilon\, f'(x)\, +\, \frac{\epsilon^2}{2}\, f''(x)\ \ .
 \]
 
-Applicando l'iterazione di Newton di eq.(\ref{Newton-Raphson}) si ottiene per l'errore:
+Stavolta non buttiamo via il termine del secondo ordine così applicando l'iterazione di Newton-Raphson di eq.(\ref{Newton-Raphson}) si ottiene una stima per l'errore:
 
 \[
 \epsilon_{i+1} = - \frac{\epsilon_i^2 f''(x_i)}{2 f'(x_i)}.
@@ -234,7 +234,7 @@ Questo mostra che l'errore si riduce \textbf{quadraticamente}, ovvero
 
 il che spiega la rapidissima convergenza del metodo.
 
-\subsection{Osservazioni sul metodo di Newton}
+\subsection{Osservazioni sul metodo di Newton-Raphson}
 
 Il metodo di Newton-Raphson presenta numerosi vantaggi:
 
@@ -251,8 +251,8 @@ Tuttavia presenta anche alcune criticità:
 
 \begin{multicols}{2}
 \begin{itemize}
-	\item richiede una buona stima iniziale;
-	\item può divergere o oscillare;
+	\item richiede una buona stima iniziale, altrimenti...
+	\item ... può divergere o oscillare;
 	\item può bloccarsi in punti stazionari;
 	\item fallisce in presenza di discontinuità;
 	\item richiede che \( f'(x) \neq 0 \).
@@ -264,7 +264,7 @@ Tuttavia presenta anche alcune criticità:
 		\centering
 		\label{newton cotes comments}
 		\includegraphics[width=6cm]{img/roots16.png}
-		\caption{idk}
+		\caption{esempio visivo di radice che fa andare in palla il metodo di Newton-Raphson.}
 \end{figure}
 
 
@@ -272,17 +272,17 @@ Tuttavia presenta anche alcune criticità:
 %
 %
 %
-\section{Metodi per polinomi}
+\section{Caso dei polinomi, metodo di Laguerre}
 
 Nel caso particolare dei polinomi esistono metodi specifici molto efficienti.
 
-Consideriamo un polinomio
+Consideriamo un polinomio scritto nella sua forma fattorizzata:
 
 \[
 P_n(x)\ =\ (x - x_1)\, (x - x_2)\, \cdots\, ( x - x_n).
 \]
 
-Si può scrivere
+Si può portare il prodotto ad essere una sommatoria usando il logaritmo:
 
 \[
 \ln |P_n(x)|\ =\ \sum_i\, \ln |x - x_i|.
@@ -292,39 +292,47 @@ Derivando:
 
 \[
 \frac{d}{dx} \ln |P_n(x)|\ =\ \sum_i\, \frac{1}{x - x_i}\
-=\ \frac{P'_n(x)}{P_n(x)}\ =\ G,
+=\ \frac{P'_n(x)}{P_n(x)}\ \equiv\ G,
 \]
+
+Questa nuova quantità $G$ possiamo trattarla come una grandezza che ci dice in base al punto $x$ in cui siamo quanto siamo vicini a ciascuna radice (vedi l'inverso, se siamo molto vicini, $G$ diventa molto grande). In particolare la radice più vicina $x_k$ contribuirà molto di più nella sommatoria, quindi $x_k\approx x - \frac{1}{G}$ in prima approssimazione.
 
 \[
 \frac{d^2}{dx^2} \ln |P_n(x)|\ =\
 \sum_i\, \frac{1}{(x - x_i)^2}
-\ =\ \left(\frac{P'_n}{P_n}\right)^2\, -\, \frac{P''_n}{P_n}\ =\ H.
+\ =\ \left[\frac{P'_n}{P_n}\right]^2\, -\, \frac{P''_n}{P_n}\ =\ H.
 \]
 
-Si ottiene quindi $G\,=\, \frac{1}{a} + \frac{n-1}{b}$ e $H\,=\, \frac{1}{a^2} + \frac{n-1}{b^2}$:
+Possiamo esprimere H in funzione del polinomio e di G, che porta informazioni sulla distanza delle radici: $H=G^2 - P_n ''/P_n$  .
+
+Si ottiene quindi $G\,=\, \frac{1}{a} + \frac{n-1}{b}$ e $H\,=\, \frac{1}{a^2} + \frac{n-1}{b^2}$, dove in particolare $a$ è la distanza della radice più vicina ($a=x-x_k$) e $b$ è la distanza di 'tutte' le altre radici (facendo finta siano tutte ugualmente distanti, $\sum_{i\neq k} (x - x_i)^{-2}\approx\frac{n-1}{b}$), così abbiamo una prima stima infine della distanza della radice:
 
 \[
 a = \frac{n}{G \pm \sqrt{(n-1)(nH - G^2)}}.
 \]
 
-Il metodo consiste nell'iterare $x \rightarrow x - a$ ,scegliendo il segno che massimizza il denominatore.
+Il metodo consiste nell'iterare $x \rightarrow x - a$ , scegliendo il segno che massimizza il denominatore.
 
-\section{Generalizzazione a più dimensioni}
+%
+%
+%
+\vspace{0.5cm}
+\section{Generalizzazione a più dimensioni di Newton-Raphson}
 
 Il problema della ricerca degli zeri si estende naturalmente a più dimensioni.
 
-Si considerano sistemi del tipo $f_i(\mathbf{X}) = 0$, dove \( \mathbf{X} \) è un vettore in \( \mathbb{R}^N \).
+Si considerano sistemi del tipo $f_i(\mathbf{X}) = 0$, con $i=1,\dots , n$, dove \( \mathbf{X}=(x_1,\, \dots ,\, x_n) \) è un vettore in \( \mathbb{R}^n \).
 
-Si generalizza il metodo di Newton-Cotes scrivendo
+Si generalizza il metodo di Newton-Raphson scrivendo
 
 \[
 f_i(\mathbf{X} + \delta)\ \approx\ f_i(\mathbf{X})\, +\, \sum_j\, \frac{\partial f_i}{\partial x_j}\, \delta_j.
 \]
 
-Definendo $a_{ij} = \frac{\partial f_i}{\partial x_j}$, si ottiene il sistema lineare:
+Definendo $a_{ij} = \frac{\partial f_i}{\partial x_j}$, coefficienti dello jacobiano, si ottiene il sistema lineare:
 
 \[
-\sum_j a_{ij} \delta_j = -f_i(\mathbf{X}).
+\sum_j\, a_{ij}\, \delta_j\ =\ -f_i(\mathbf{X}).
 \]
 
 Risolvendo per \( \delta \) si ottiene  $\delta_j = - \sum_i (a_{ij})^{-1} f_i(\mathbf{X})$  e si itera seguendo  $X_i^{(\text{new})} = X_i^{(\text{old})} + \delta_i$  .
