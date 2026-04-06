@@ -161,11 +161,12 @@ Da qui in avanti, quindi, chiamiamo le colonne di $\mathbf U$ come una base: $\b
 
 \subsection{Condizione per la convergenza}
 
-\begin{teorema}[teorema sulla convergenza]
-	Condizione necessaria e sufficiente al che la matrice $\mathbf H$ converga è che 
-	\[\rho(\mathbf H)\ <\ 1\ \ .\]
-\end{teorema}
+\textbf{Teorema sulla convergenza: }\\
+\emph{Condizione necessaria e sufficiente al che la matrice $\mathbf H$ converga è che: }
 
+\[\rho(\mathbf H)\ <\ 1\ \ .\]
+
+\textbf{Dimostrazione:}\\
 Per dimostrare questo teorema si parte dall'equazione di iterazione:
 \[\mathbf \phi^{(m+1)}\ =\ \mathbf H \mathbf \phi^{(m)}\, +\, \mathbf q\ \ ,\]
 
@@ -187,98 +188,283 @@ La definizione di errore può essere riscritta nella forma:
 
 Dove $\epsilon^{(0)}$ è l'errore iniziale.
 
-\textbf{Continuare da slide 13 a correggere}
-
-Sviluppando sull'autobase:
+Sviluppando l'errore sull'autobase di $\textbf{H}$:
 
 \begin{equation*}
-	\boldsymbol{\varepsilon}^{(0)} = \sum_{h=1}^n c_h^{(0)} \boldsymbol{\phi}_h
+	\boldsymbol{\varepsilon}^{(0)} \ =\ 
+	\sum_{h=1}^n c_h^{(0)} \boldsymbol{\phi}_h
 \end{equation*}
 
-\begin{equation}
-	\boldsymbol{\varepsilon}^{(m)} = \sum_{h=1}^n c_h^{(0)} \lambda_h^m \boldsymbol{\phi}_h
-\end{equation}
+\begin{equation*}
+	\boldsymbol{\varepsilon}^{(m)}\ =\
+	\textbf H^m \sum^n_{h=1} c_h^{(0)} \boldsymbol{\varphi}_h\ =\
+	\sum^n_{h=1} c^{(0)}_h \mathbf{H}^m \boldsymbol{\varphi}_h\ =\
+	\sum_{h=1}^n c_h^{(0)} \lambda_h^m \boldsymbol{\phi}_h
+\end{equation*}
 
 La convergenza avviene se e solo se
 
 \begin{equation*}
-	|\lambda_h| < 1 \quad \forall h
+	\lim_{m\rightarrow\infty} ||\epsilon{(m)}||\ =\ 
+	\lim_{m\rightarrow\infty} \sum_{h=1}^n c_h^{(0)} |\lambda_h^m|\, ||\boldsymbol{\phi}_h||\ =\ 0
+	\quad \rightarrow \quad
+	|\lambda_h| < 1 \quad \forall\ h
 \end{equation*}
 
-cioè
+cioè: $\boxed{\rho(H) < 1}$ .\hfill \square
+
+La proprietà $\rho(H) < 1$ ci assicura che l'operatore matriciale $\mathbf H$ contragga, nel senso della norma, ogni vettore al quale venga applicato.
+
+%
+\subsubsection{Ancora sulle condizioni di convergenza}
+
+Una condizione sufficiente per la convergenza è che la matrice $A$ sia \emph{strettamente diagonalmente dominante} ($>$) oppure \emph{irriducibilmente diagonalmente dominante} ($\ge$):
 
 \begin{equation*}
-	\rho(H) < 1
+	|a_{ii}|\ \ge\ \sum^n_{j=1,\ j\neq i} |a_{ij}|
 \end{equation*}
 
-\section{Condizioni di convergenza}
+Nel secondo caso è necessario che per almeno una riga vi sia dominanza diagonale stretta: $\exists\ i:\ |a_{ii}|\,>\,\sum_{j\neq i} |a_{ij}|$.
 
-Una condizione sufficiente per la convergenza è che la matrice $A$ sia strettamente diagonalmente dominante:
 
-\begin{equation}
-	|a_{ii}| > \sum_{j \neq i} |a_{ij}|
-\end{equation}
+%
+%
+\paragraph{Definizione di irriducibilità:}
 
-Oppure irriducibilmente diagonalmente dominante:
-
-\begin{equation*}
-	|a_{ii}| \ge \sum_{j \neq i} |a_{ij}|
-\end{equation*}
-
-con almeno una riga per cui la disuguaglianza è stretta.
-
-\subsection{Definizione di irriducibilità}
-
-Una matrice è riducibile se esiste una matrice di permutazione $P$ tale che
+Una matrice è detta irriducibile se non è riducibile. Una matrice $\mathbf A_{n\times n}$ è riducibile quando esiste una matrice di permutazione $P$ tale che la matrice $\mathbf P\mathbf A\mathbf P^T$ è triangolare a blocchi
 
 \begin{equation*}
-	P A P^T =
+	\mathbf A =
 	\begin{pmatrix}
-		\hat{A}_{11} & \hat{A}_{12} & \cdots \\
+		a_{11} & a_{12} & \cdots \\
+		0 & a_{22} & \cdots \\
+		\vdots & \vdots & \ddots
+	\end{pmatrix}
+	\quad \rightarrow \quad 
+	\mathbf P\mathbf A\mathbf P^T =
+	\begin{pmatrix}
+		\hat{A}_{11} & \mathbf{A}_{12} & \cdots \\
 		0 & \hat{A}_{22} & \cdots \\
 		\vdots & \vdots & \ddots
 	\end{pmatrix}
 \end{equation*}
 
-Se ciò non è possibile, la matrice è detta irriducibile.
 
-Una matrice è irriducibile se e solo se il suo grafo orientato è fortemente connesso.
+%
+%
+\paragraph{Teorema [irriducibilità e grafi]: }
+\emph{Una matrice $\mathbf A_{n\times n}\in \mathbb C$ è irriducibile se e solo se il grafo orientato $G(\mathbf A)$ associato è fortemente connesso}.
+
+Il grafo orientato (\emph{directed graph}) è l'insieme dei cammini orientati (\emph{"directed paths"}) che connettono due nodi, si dicano $i$ e $j$, per i quali la matrice $\mathbf A$ ha un coefficiente $a_{ij}$ non nullo.
+
+Un grafo orientato è fortemente connesso se per ogni scelta di due indici esiste una sequenza di collegamenti (coefficienti non nulli) tale che $i$ e $j$ siano connessi da $\{a_{i,\ell_1},\, a_{\ell_1,\ell_2},\dots ,\, a_{\ell_r,\, j}\}$, c.d. cammino orientato.
 
 \begin{multicols}{2}
 \begin{figure}[H]
+	\centering
 	\label{connected}
 	\includegraphics[width=5cm]{img/graph-connected.png}
 	\caption{Esempio visivo di grafo connesso}
 \end{figure}
 
 \begin{figure}[H]
+	\centering
 	\label{not connected}
 	\includegraphics[width=5cm]{img/graph-not-connected.png}
 	\caption{Esempio di grafo non connesso}
 \end{figure}
 \end{multicols}
 
-\subsection{Schema esplicito del metodo di Jacobi}
+\paragraph{Considerazioni fisiche sul grafo orientato: }
 
-Il sistema
+\begin{itemize}
+	\item secondo la nostra discretizzazione dell'equazione di diffusione dei neutroni dobbiamo considerare che un coefficiente non nullo $a_{ij}$ è equivalente a dire che i due nodi $i$ e $j$ si influenzano mutualmente;
+	\item L'irriducibilità è assicurata dal \emph{neutron leakage} fra i nodi, solo in correnti nulle potremmo avere una matrice riducibile.
+\end{itemize}
+
+Immaginiamo che nel nostro dominio vi sia un'\emph{absorbing curtain} (come quella in viola in fig.(\ref{not connected})). Il sitema in matrice $\mathbf A$ allora è riducibile perché non è possibile tracciare un percorso orientato presa ciascuna coppia di nodi del sistema.
+
+Mostiamo in che forma appare la matrice riducibile dell'esempio in fig.(\ref{not connected}):
+
+\[ \mathbf{A} \mathbf{\phi} = \mathbf{b}
+\quad \Rightarrow \quad
+\begin{bmatrix}
+	a_{11} & a_{12} & 0 & a_{14} & 0 & 0 & 0 & 0 & 0 \\
+	a_{21} & a_{22} & 0 & 0 & a_{25} & 0 & 0 & 0 & 0 \\
+	0 & 0 & a_{33} & 0 & 0 & a_{36} & 0 & 0 & 0 \\
+	a_{41} & 0 & 0 & a_{44} & a_{45} & 0 & a_{47} & 0 & 0 \\
+	0 & a_{52} & 0 & a_{54} & a_{55} & 0 & 0 & 0 & 0 \\
+	0 & 0 & a_{63} & 0 & 0 & a_{66} & 0 & 0 & a_{69} \\
+	0 & 0 & 0 & a_{74} & 0 & 0 & a_{77} & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & a_{88} & a_{89} \\
+	0 & 0 & 0 & 0 & 0 & a_{96} & 0 & a_{98} & a_{99}
+\end{bmatrix}
+\begin{bmatrix}
+	\phi_1 \\ \phi_2 \\ \phi_3 \\ \phi_4 \\ \phi_5 \\ \phi_6 \\ \phi_7 \\ \phi_8 \\ \phi_9
+\end{bmatrix}
+=
+\begin{bmatrix}
+	b_1 \\ b_2 \\ b_3 \\ b_4 \\ b_5 \\ b_6 \\ b_7 \\ b_8 \\ b_9
+\end{bmatrix} \]
+
+Esiste una permutazione $\mathbf P$ che ci permette di riarrangiare le righe in modo che la matrice diventi diagonale a blocchi (caso speciale di matrice triangolare a blocchi), questo significa che si riconoscono due flussi di neutroni ben distinti che non si influenzano fra loro:
+
+\[
+\mathbf{P} =
+\begin{bmatrix}
+	1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+	0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+\end{bmatrix},
+\]
+
+\[ \mathbf A\, \phi\ =\ \mathbf b\quad \rightarrow\quad \mathbf{P\,A}\,(\mathbf P^T \mathbf P)\,\phi\ =\ \mathbf{P\,b} \ \rightarrow\ \mathbf{PAP}^T \mathbf{P}\psi\quad =\quad \mathbf{P\, b} \]
+
+\[
+\begin{bmatrix}
+	a_{11} & a_{12} & a_{14} & 0 & 0 & 0 & 0 & 0 & 0 \\
+	a_{21} & a_{22} & 0 & a_{25} & 0 & 0 & 0 & 0 & 0 \\
+	a_{41} & 0 & a_{44} & a_{45} & a_{47} & 0 & 0 & 0 & 0 \\
+	0 & a_{52} & a_{54} & a_{55} & 0 & 0 & 0 & 0 & 0 \\
+	0 & 0 & a_{74} & 0 & a_{77} & 0 & 0 & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & a_{33} & a_{36} & 0 & 0 \\
+	0 & 0 & 0 & 0 & 0 & a_{63} & a_{66} & 0 & a_{69} \\
+	0 & 0 & 0 & 0 & 0 & 0 & 0 & a_{88} & a_{89} \\
+	0 & 0 & 0 & 0 & 0 & 0 & a_{96} & a_{98} & a_{99}
+\end{bmatrix}
+\begin{bmatrix}
+	\phi_1 \\ \phi_2 \\ \phi_4 \\ \phi_5 \\ \phi_7 \\ \phi_3 \\ \phi_6 \\ \phi_8 \\ \phi_9
+\end{bmatrix}
+=
+\begin{bmatrix}
+	b_1 \\ b_2 \\ b_4 \\ b_5 \\ b_7 \\ b_3 \\ b_6 \\ b_8 \\ b_9
+\end{bmatrix}
+\]
+
+dove sulla diagonale vediamo che vi sono blocchi quadrati. Il sistema è quindi riducibile ad un primo sistema di 5 equazioni con soluzione
+$\phi_I = [\phi_1, \phi_2, \phi_4, \phi_5, \phi_7]^T$ ed un secondo
+sistema di 4 equazioni con soluzione
+$\phi_{II} = [\phi_3, \phi_6, \phi_8, \phi_9]^T$. Possiamo definirli flussi disaccoppiati (\emph{decoupled fluxes}).
+
+
+
+%
+%
+%
+\section*{Flusso illimitato}
+
+Le considerazioni fisiche sull'irriducibilità della matrice garantiscono che:
+
+\begin{itemize}
+	\item La dominanza diagonale stretta della matrice $\mathbf{A}$ del sistema è assicurata da $\Sigma_a > 0$ in ogni nodo. Se in qualche nodo $\Sigma_a = 0$ e non ci sono perdite verso i nodi adiacenti, il flusso neutronico diventerebbe illimitato, a meno che non ci siano interazioni con altri nodi.
+	\item L’irriducibilità della matrice assicura che il flusso resti limitato, grazie alle influenze mutue tra tutti i nodi.
+\end{itemize}
+
+Un reattore nucleare è accoppiato debolmente quando il cammino libero medio dei neutroni è relativamente piccolo se comparata alla sua dimensione.
+In questo caso, nonostante ci sarà sempre un'interazione fra qualsiasi coppia di regioni scelte del reattore, questa interazione può spesso essere abbastanza piccola da permetterci di considerare come se i nodi fossero indipendenti fra loro.
+
+
+\section{Come funziona il metodo di Jacobi}
+
+Considerando la decomposizione di Jacobi della matrice \(\mathbf{A}\) del sistema, l'idea alla base del metodo è la seguente:
 
 \begin{equation*}
-	\sum_{j=1}^n a_{ij} \phi_j = b_i
+	\begin{cases}
+		a_{11} \phi_1 + a_{12} \phi_2 + a_{13} \phi_3 + \cdots + a_{1n} \phi_n = b_1 \\
+		a_{21} \phi_1 + a_{22} \phi_2 + a_{23} \phi_3 + \cdots + a_{2n} \phi_n = b_2 \\
+		\vdots \\
+		a_{n1} \phi_1 + a_{n2} \phi_2 + a_{n3} \phi_3 + \cdots + a_{nn} \phi_n = b_n
+	\end{cases}
+	\label{eq:sistema_jacobi}
 \end{equation*}
 
-viene risolto iterativamente come
+Si adotta la seguente procedura iterativa:
 
 \begin{equation*}
-	\phi_i^{(m+1)} =
-	\frac{1}{a_{ii}}
-	\left(
-	b_i - \sum_{j \neq i} a_{ij} \phi_j^{(m)}
-	\right)
+	\begin{cases}
+		\phi_1^{(m+1)}\ =\ \left(b_1 - a_{12} \phi_2^{(m)} - a_{13} \phi_3^{(m)} - \cdots - a_{1n} \phi_n^{(m)}\right)\, /\, a_{11} \\
+		
+		\phi_2^{(m+1)}\ =\ \left(b_2 - a_{21} \phi_1^{(m)} - a_{23} \phi_3^{(m)} - \cdots - a_{2n} \phi_n^{(m)}\right) \, /\, a_{22} \\
+		\vdots \\
+		
+		\phi_n^{(m+1)}\ =\ \left(b_n - a_{n1} \phi_1^{(m)} - a_{n2} \phi_2^{(m)} - \cdots - a_{n,n-1} \phi_{n-1}^{(m)}\right)\, /\, a_{nn}
+	\end{cases}
+	\label{eq:iterazione_jacobi}
 \end{equation*}
 
+Un processo così brutale converge alla soluzione esatta del problema poiché la matrice di iterazione \(\mathbf{H}\) di Jacobi, avendo raggio spettrale minore di 1, contrae sempre l'errore iniziale introdotto da qualsiasi stima iniziale scelta.
+
+Matrice diagonalmente dominante (norma dell'errore in blu in figura):
+\[
+\begin{bmatrix}
+	6 & 2 & 3 \\
+	2 & 4 & -1 \\
+	1 & -2 & 5
+\end{bmatrix}
+\begin{bmatrix}
+	\phi_1 \\ \phi_2 \\ \phi_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+	1 \\ 2 \\ 1
+\end{bmatrix}
+\]
+
+La prima riga non rispetta la condizione di matrice diagonalmente dominante (norma dell'errore in rosso):
+\[
+\begin{bmatrix}
+	5 & 2 & 3 \\
+	2 & 4 & -1 \\
+	1 & -2 & 5
+\end{bmatrix}
+\begin{bmatrix}
+	\phi_1 \\ \phi_2 \\ \phi_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+	1 \\ 2 \\ 1
+\end{bmatrix}
+\]
+
+\begin{multicols}{2}
+La prima e la seconda riga non rispettano la condizione di matrice diagonalmente dominante (norma dell'errore in viola):
+\[
+\begin{bmatrix}
+	5 & 2 & 3 \\
+	2 & 3 & -1 \\
+	1 & -2 & 5
+\end{bmatrix}
+\begin{bmatrix}
+	\phi_1 \\ \phi_2 \\ \phi_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+	1 \\ 2 \\ 1
+\end{bmatrix}
+\]
+
+\begin{figure}[H]
+	\centering
+	\label{jacobi}
+	\includegraphics[width=7cm]{img/Jacobi.png}
+	\caption{error norm vs. iteration}
+\end{figure}
+\end{multicols}
+
+
+
+
+%
+%
 \section{Implementazione per equazione di diffusione}
 
-Nel caso bidimensionale:
+Nel caso bidimensionale rappresentato in figura che presenta sia indicizzazione singola che doppia:
 
 \begin{equation*}
 	- \frac{D}{h_x^2} (\phi_{i+1,j} - 2\phi_{i,j} + \phi_{i-1,j})
@@ -286,7 +472,8 @@ Nel caso bidimensionale:
 	+ \Sigma_a \phi_{i,j} = Q_{i,j}
 \end{equation*}
 
-Definendo
+\begin{multicols}{2}
+Definendo i coefficienti di seguito:
 
 \[\begin{aligned}
 	W_{i,j} = E_{i,j} &= \frac{D/h_x^2}{\Sigma_a + 2D/h_x^2 + 2D/h_y^2} \\
@@ -294,53 +481,98 @@ Definendo
 	q_{i,j} &= \frac{Q_{i,j}}{\Sigma_a + 2D/h_x^2 + 2D/h_y^2}
 \end{aligned}\]
 
-lo schema diventa
+\begin{figure}[H]
+	\centering
+	\label{indicizzazione}
+	\includegraphics[width=8cm]{img/gs2.png}
+	\caption{indicizzazione}
+\end{figure}
+\end{multicols}
+
+lo schema iterativo diventa:
 
 \begin{equation*}
-	\phi_{i,j}^{(m+1)} =
-	W_{i,j}\phi_{i-1,j}^{(m)} +
-	E_{i,j}\phi_{i+1,j}^{(m)} +
-	S_{i,j}\phi_{i,j-1}^{(m)} +
-	N_{i,j}\phi_{i,j+1}^{(m)} +
+	\phi_{i,j}^{(m+1)}\ =\
+	W_{i,j}\phi_{i-1,j}^{(m)}\, +\,
+	E_{i,j}\phi_{i+1,j}^{(m)}\, +\,
+	S_{i,j}\phi_{i,j-1}^{(m)}\, +\,
+	N_{i,j}\phi_{i,j+1}^{(m)}\, +\,
 	q_{i,j}
 \end{equation*}
 
-\subsection{Velocità di convergenza}
+Nel caso tridimensionale compaiono due coefficienti in più, $D_{i,\, j}$ e $U_{i,\, j}$, rispettivamente per i flussi $\phi^{(m)}_{i,\, j,\, k-1}$ e $\phi^{(m)}_{i,\, j,\, k+1}$.
 
-L'errore si comporta come
+
+%
+%
+%
+\section{Velocità di convergenza}
+
+Se la matrice $\mathbf H_{n\times n}$ ha un singolo autovalore di modulo al più $\lambda_1$ ed l'insieme di autovettori $\varphi$ forma una base di $\mathbb{R}_n$, allora:
+
+\[\epsilon^{(m)}\ =\ \mathbf H^m\, \epsilon^{(0)}\ =\ 
+\mathbf H^m \sum_{h=1}^n c_h^{(0)} \varphi_h\ =\ 
+\sum_{h=1}^n c_h^{(0)}\, \lambda^m_h\, \varphi_h\ \ , \]
+
+\[\epsilon^{(m)}\ =\ \lambda^m_h\, 
+\left(c_1^{(0)} \varphi_1 + \sum_{h=2}^n c_h^{(0)}\, \frac{\lambda^m_h}{\lambda_1^m}\, \varphi_h\right)\ \ .
+\]
+
+La somma svenisce mandando $m\rightarrow \infty$ quindi l'errore si comporta come:
 
 \begin{equation*}
-	\|\varepsilon^{(m)}\| \approx C \rho(H)^m
+	\|\varepsilon^{(m)}\| \ \underset{m\rightarrow \infty}{=}\  
+	|\lambda^m_1| \|c_1^{(0)} \varphi_1\|\ =\ C\, \rho(\mathbf H)^m
 \end{equation*}
 
-e vale
+
+
+Se la matrice $\mathbf H_{n\times n}$ avesse invece più di un autovalore di modulo massimo, $\rho(\mathbf H)$, è ancora possibile raggiungere lo stesso risultato di cui sopra. Infatti, assumento che gli autovettori siano normalizzati, segue:
+
+\[\begin{aligned}
+	\|\epsilon^{(m)}\|^2\ 
+	&=\ \left(\epsilon^{(m)},\, \epsilon^{(m)}\right)\ =\
+	\left(\sum_{h=1}^n c_h^{(0)}\lambda^m_h \varphi_h,\,\sum_{h=1}^n c_h^{(0)}\lambda^m_h \varphi_h\right) \ =\\
+	&=\ \sum_{h=1}^n |c_h^{(0)}\lambda^m_h|^2\ =\ 
+	\rho(\mathbf{H})^{2m} \left(\sum_{h:\, |\lambda_h|=\rho(\mathbf H)} |c_h^{(0)} |^2\, +\, \sum_{h:\, |\lambda_h|<\rho(\mathbf H)} |c_h^{(0)} |^2\frac{|\lambda_h^m|^2}{\rho(\mathbf H)^{2m}}\right) 
+\end{aligned}\]
+
+Che porta nuovamente a $\|\varepsilon^{(m)}\| \ \underset{m\rightarrow \infty}{=}\ C\, \rho(\mathbf H)^m$. Quindi vale che:
 
 \begin{equation*}
 	\lim_{m \to \infty}
 	\frac{\|\varepsilon^{(m+1)}\|}{\|\varepsilon^{(m)}\|}
-	= \rho(H)
+	= \rho(\mathbf H)
 \end{equation*}
 
-Il tasso asintotico di convergenza è
+Che non vuol dire altro che il raggio spettrale corrisponde al fattore di decrescita dell'errore ad ogni iterazione (per questo potremmo anche chiamarlo \underline{fattore asintotico di convergenza}).
+
+Il \underline{tasso di convergenza medio} dopo $m$ iterazioni è
 
 \begin{equation*}
-	R_\infty(H) = -\ln \rho(H)
+	R_m (\mathbf H)\ =\ -\,\frac{1}{m}\, \ln \|\mathbf H^m\|
 \end{equation*}
+
+Si può mostrare che $\lim\limits_{m\rightarrow \infty}\|\mathbf H^m\|^{\frac{1}{m}}=\rho(\mathbf H)$ per cui dal tasso di convergenza medio possiamo dare una definizione di \underline{tasso asintotico di convergenza}:
+
+\begin{equation*}
+	R_\infty (\mathbf H)\ =\ -\,\ln\rho(\mathbf H)\ \ .
+\end{equation*}
+
+
 
 %
 \subsubsection{Numero di iterazioni}
 
-Per ridurre l'errore di un fattore $\sigma$:
+Ci chiediamo quale sia il numero di iterazioni necessario per ridurre l'errore di un fattore $\sigma$:
 
 \begin{equation*}
-	\rho(H)^n < \sigma
+	\rho(\mathbf H)^n < \sigma
 \end{equation*}
 
-da cui
-
 \begin{equation*}
-	n > \frac{\ln \sigma}{\ln \rho(H)}
-	= -\frac{\ln \sigma}{R_\infty(H)}
+	n > \frac{\ln \sigma}{\ln \rho(\mathbf H)}
+	= -\frac{\ln \sigma}{R_\infty(\mathbf H)}
 \end{equation*}
 
 \subsubsection{Osservazioni finali}
@@ -348,20 +580,15 @@ da cui
 Per avere una convergenza veloce è necessario che
 
 \begin{equation*}
-	\rho(H) \ll 1
+	\rho(\mathbf H) \ll 1
 \end{equation*}
 
 Si osserva che:
 
 \begin{itemize}
-	\item se $\Sigma_a \to 0$, la dominanza diagonale diminuisce e $\rho(H) \to 1$;
+	\item se $\Sigma_a \to 0$, la dominanza diagonale diminuisce e $\rho(\mathbf H) \to 1$;
 	\item raffinando la griglia ($h_x, h_y \to 0$), $\rho(H) \to 1$;
 \end{itemize}
 
 quindi una maggiore risoluzione spaziale comporta una convergenza più lenta.
 
-\begin{figure}[H]
-	\label{jacobi}
-	\includegraphics[width=6cm]{img/Jacobi.png}
-	\caption{catzo e palle}
-\end{figure}
