@@ -1,0 +1,104 @@
+\chapter{Accelerazione del Metodo delle Potenze: Metodo di Wielandt}
+
+\section{Convergenza del Metodo delle Potenze}
+La convergenza dell'autovettore fondamentale dipende dalla rapidità con cui gli autovettori di ordine superiore vengono ``smorzati''. 
+
+L'iterazione del metodo delle potenze può essere espressa come:  
+
+\[\phi^{(n)}\ =\ \frac{k_1^{n-1}}{k^{(n-1)} \cdots k^{(2)} k^{(1)}} \left[ c_1 \phi_1 + \sum_{h \geq 2} c_h \left(\frac{k_h}{k_1}\right)^{n-1} \phi_h \right]\ \ .\]
+  
+In particolare, la velocità di convergenza dipende dal rapporto tra il secondo e il primo autovalore, detto \underline{dominance ratio}:  
+\[\sigma\ =\ \frac{k_2}{k_1}\ \ .\]  
+
+Più $\sigma$ è vicino a 1, più lenta è la convergenza.
+
+%
+%
+\subsection{Spostamento Spettrale}
+Un miglioramento della velocità di convergenza si ottiene riducendo $\sigma$, cioè separando maggiormente i primi due autovalori (spostamento spettrale). Consideriamo il problema agli autovalori: 
+
+\[\phi\ =\ \frac{1}{k} \mathbf{K} \phi \qquad \Rightarrow \qquad \mathbf{K} \phi\ =\ k \phi\ \ .\]
+  
+Supponiamo di conoscere una stima $k^*$ dell'autovalore fondamentale $k_1$, con $k^* > k_1$. 
+
+Sostituendo $\mathbf{K}$ con la matrice $(k^*\mathbf{I} - \mathbf{K})^{-1}$, il nuovo problema agli autovalori ha gli stessi autovettori e autovalori:  
+
+\[\lambda_h\ =\ \frac{1}{k^*\, -\, k_h}\ \ .\]  
+
+Si verifica che:  
+
+\[(k^*\mathbf{I}\, -\, \mathbf{K})^{-1} \phi_h\ =\ \lambda_h \phi_h\ \ ,\]  
+
+e quindi:  
+
+\[\mathbf{K} \phi_h\ =\ \left(k^*\, -\, \frac{1}{\lambda_h}\right) \phi_h\ \ .\]
+
+Quindi $(k^*\mathbf{I} - \mathbf{K})^{-1}$ ha gli stessi autovalori di $\mathbf K$ e gli autovalori di quest'ultimo sono $k_h=\left(k^*-1/\lambda_h\right)$.
+ 
+I nuovi autovalori $\lambda_1$ e $\lambda_2$ sono:  
+
+\[\lambda_1 = \frac{1}{k^* - k_1}, \quad \lambda_2 = \frac{1}{k^* - k_2}\ \ .\]  
+
+Il nuovo dominance ratio $\sigma^*$ risulta:  
+\[\sigma^*\ =\ \frac{\lambda_2}{\lambda_1}\ =\ \frac{k^*\, -\, k_1}{k^*\, -\, k_2}\ \ .\]  
+Per ottenere $\sigma^* < \sigma$, deve valere $\frac{k^*-k_1}{k^*-k_2}<\frac{k_2}{k_1}$ che si riduce a:
+  
+\[k^*\ <\ k_1\, +\, k_2\ \ .\] 
+
+%
+%
+% 
+\section{Metodo di Wielandt}
+Consideriamo il problema agli autovalori generalizzato:  
+
+\[-(\mathbf{A} + \mathbf{R})\phi\ =\ \frac{1}{k} \mathbf{M} \phi\ \ .\]  
+
+Sottraendo $\frac{1}{k^*}\mathbf{M}\phi$ da entrambi i membri, otteniamo:  
+
+\[-\left(\mathbf{A} + \mathbf{R} + \frac{1}{k^*} \mathbf{M}\right) \phi\ =\ \left(\frac{1}{k} - \frac{1}{k^*}\right) \mathbf{M} \phi\ \ .\]  
+
+Riscrivendo, si arriva al problema iterativo equivalente:  
+
+\[\phi\ =\ -\left(\frac{1}{k} - \frac{1}{k^*}\right) \left(\mathbf{A} + \mathbf{R} + \frac{1}{k^*} \mathbf{M}\right)^{-1} \mathbf{M} \phi\ \ .\]  
+
+Possiamo definire un nuovo problema iteravivo $\boxed{\mathbf \phi^{(n+1)} = \frac{1}{\lambda} \mathbf{\hat K} \mathbf \phi^{(n)}}$ dove la matrice iterativa $\hat{\mathbf{K}}$ ed il fattore $\lambda$ sono definiti come:  
+
+\[\hat{\mathbf{K}} = -\left(\mathbf{A} + \mathbf{R} + \frac{1}{k^*} \mathbf{M}\right)^{-1} \mathbf{M}\ \ ,\qquad \quad \lambda\ =\ \left(\frac{1}{k}+ \frac{1}{k^*}\right)^{-1}\ \ .\]
+  
+I nuovi autovalori $\lambda_1$ e $\lambda_2$ sono:  
+
+\[\lambda_1\ =\ \frac{k_1 k^*}{k^* - k_1}, \qquad \lambda_2\ =\ \frac{k_2 k^*}{k^* - k_2}\ \ .\]  
+
+Il nuovo dominance ratio $\sigma^*$ diventa:  
+
+\[\sigma^* = \frac{\lambda_2}{\lambda_1} = \frac{k^* - k_1}{k^* - k_2} \cdot \frac{k_2}{k_1} = \frac{k^* - k_1}{k^* - k_2} \cdot \sigma\ \ .\]  
+
+\begin{multicols}{2}
+	
+	
+	
+Poiché $k_1 > k_2$, si ha 
+
+\[\frac{k^* - k_1}{k^* - k_2} < 1, e quindi \sigma^* < \sigma per ogni k^* > k_1\ \ . \]
+
+Inoltre:  
+
+\[\lim_{k^* \to \infty} \sigma^* = \sigma\ \ .  \]
+
+Non esiste un limite superiore per $k^*$ per ottenere un vantaggio.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{img/wielandt.png}
+	\label{fig:wielandt}
+	\caption{convergenza di $\sigma^*$ a $\sigma$.}
+\end{figure}
+\end{multicols}
+
+%
+%
+%
+\subsection{Osservazioni Finali}
+\begin{itemize}
+	\item Il metodo di accelerazione di Wielandt può essere applicato sia a codici deterministici che stocastici.
+	\item Purtroppo, la matrice a sinistra dell'equazione ad inizio dello scorso paragrafo non è più triangolare inferiore e non permette di disaccoppiare le equazioni di diffusione multigruppo.
+\end{itemize}

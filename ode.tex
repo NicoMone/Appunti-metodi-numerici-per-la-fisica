@@ -677,28 +677,41 @@ A questo punto possiamo dare un guess iniziale $y^{(0)} $ ed iterare.
 \chapter{Integrazione numerica di equazioni differenziali alle derivate parziali (PDEs)}
 
 \section{Introduzione}
-Esistono principalmente tre tipi di equazioni differenziali alle derivate parziali (PDE, \emph{partial differential equation}), la differenza computazionalmente sta nel caso in cui abbiamo \textbf{valori iniziali} (problema principale: stabilità) o utilizziamo \textbf{condizioni al contorno} (problema principale: efficienza):
+Esistono principalmente tre tipi di equazioni differenziali alle derivate parziali (PDE, \emph{partial differential equation}):
 \begin{itemize}
 	\item \textbf{Iperboliche}: come ad esempio l'equazione delle onde 
-	\begin{equation}
+	\[
 		\boxed{\frac{\partial^2 u}{\partial t^2} - v^2 \frac{\partial^2 u}{\partial x^2}\ =\ 0}\ \ \ \ ; 
-	\end{equation}
+	\]
 	\item \textbf{Paraboliche}: come ad esempio l'equazione di diffusione 
-	\begin{equation}
+	\[
 		\boxed{\frac{\partial P}{\partial t} - \frac{\partial}{\partial x}\left( D\frac{\partial }{\partial x}P\right) \ =\ 0}\ \ \ \ ; 
-	\end{equation}
+	\]
 	\item \textbf{Ellittiche}: come ad esempio l'equazione di Poisson 
-	\begin{equation}
+	\[
 		\boxed{\frac{\partial^2 u}{\partial x^2} +  \frac{\partial^2 u}{\partial y^2}\ =\ \rho(x, y)}\ \ \ \ .  
-	\end{equation}
+	\]
 \end{itemize}
 
-\begin{dimostrazione}{applicazione}
-	Mettiamo che io prenda $\displaystyle\frac{\partial^2 u}{\partial x^2} +  \frac{\partial^2 u}{\partial y^2} = \rho(x, y)$, prima cosa che vorremmo fare è introdurre uno \emph{spacing} $\Delta$ in modo che ${x_j}=x_0+j\Delta$ (con j=0, ..., J) e ${y_\ell}=y_0+j\Delta$ (con $\ell$=0, ..., L).\\
+La differenza computazionalmente sta nel fatto che il problema può essere:
+\begin{itemize}
+	\item \emph{Initial value problem};
+	\item \emph{Boundary value problem}.
+\end{itemize}
+Nel primo caso dobbiamo stare ben attenti alla \emph{stabilità}, mentre nel secondo il problema maggiore è l'\emph{efficienza}.
+
+
+\begin{dimostrazione}{Applicazione}
+	Mettiamo che io prenda $\displaystyle\frac{\partial^2 u}{\partial x^2} +  \frac{\partial^2 u}{\partial y^2} = \rho(x, y)$, prima cosa che vorremmo fare è introdurre uno \emph{spacing} $\Delta$ in modo che ${x_j}=x_0+j\Delta$ (con j=0, ..., J) e ${y_\ell}=y_0+j\Delta$ (con $\ell$=0, ..., L).
+	
 	Possiamo esprimere le derivate come spiegato nel paragrafo sulle differenze finite:
-	\[\frac{u_{j+1,\ \ell}-2u_{j,\ \ell} + u_{j-1,\ \ell}}{\Delta^2} + \frac{u_{j,\ \ell+1}-2u_{j,\ \ell} + u_{j,\ \ell-1}}{\Delta^2}\ =\ \rho(x, y)\]
+	
+	\[\frac{u_{j+1,\, \ell}-2u_{j,\, \ell} + u_{j-1,\, \ell}}{\Delta^2} + \frac{u_{j,\ \ell+1}-2u_{j,\, \ell} + u_{j,\, \ell-1}}{\Delta^2}\ =\ \rho_{j,\,\ell}\]
+	
 	Il modo di soluzione che introduciamo ora passa attraverso l'introdurre un indice $i=j(L+1)+\ell$ (per j=0 va da 0 ad L, per j=1 va da L+1 a 2L+1 e così via...) così che u diventi un vettore ed il problema diventi un problema di algebra lineare:
-	\[ u_{i+L+1}+u_{i-(L+1)} + u_{i+1} + u_{i-1} - 4u_i \ =\ \Delta^2 \rho(x, y)\ \ \ \ ,\]
+	
+	\[ u_{i+L+1}+u_{i-(L+1)} + u_{i+1} + u_{i-1} - 4u_i \ =\ \Delta^2\, \rho_i\ \ \ \ ,\]
+	
 	\[ \textbf{A}\ \vec u\ = \ \vec b \]
 	
 	dove in questo caso ci si può convincere che 
@@ -722,9 +735,9 @@ Esistono principalmente tre tipi di equazioni differenziali alle derivate parzia
 	
 	Come risolvere $\textbf{A}\vec u = \vec b$? 
 	\begin{itemize}
-		\item quando \textbf{A} è costante con Fast Fourier methods;
-		\item direttamente, usando ad esempio il gradiente coniugato (molto accurato, non molto efficiente quando \textbf{A} è grande perché 'sparsa');
-		\item Rilassamento, scrivendo $\textbf{A}=\textbf{E}-\textbf{F}$ dove \textbf{E} è invertibile, si inizia da un guess $\vec u^{0}$ e si itera risolvendo $\textbf{E} \vec{u}^{(r+1)}=\vec b + \textbf{F} \vec u^{(r)}$
+		\item quando \textbf{A} è costante con \emph{fast Fourier methods};
+		\item direttamente, usando ad esempio il \emph{gradiente coniugato} (molto accurato, non molto efficiente quando \textbf{A} è grande perché 'sparsa');
+		\item \emph{Rilassamento}, scrivendo $\textbf{A}=\textbf{E}-\textbf{F}$ dove \textbf{E} è invertibile, si inizia da un guess $\vec u^{0}$ e si itera risolvendo $\textbf{E} \vec{u}^{(r+1)}=\vec b + \textbf{F} \vec u^{(r)}$
 	\end{itemize}
 \end{dimostrazione}
 
@@ -732,7 +745,7 @@ Esistono principalmente tre tipi di equazioni differenziali alle derivate parzia
 %
 %
 \vspace{1cm}
-\subsection{Differenze finite}
+\section{Differenze finite}
 
 Il metodo delle differenze finite è una strategia utilizzata per risolvere numericamente equazioni differenziali che, nelle sue varianti, si basa sull'approssimazione delle derivate con equazioni alle differenze finite. Viene utilizzato prevalentemente per equazioni differenziali ordinarie, anche se il metodo viene sfruttato come schema di avanzamento nel tempo per problemi alle derivate parziali.
 
@@ -740,10 +753,12 @@ Il metodo delle differenze finite è una strategia utilizzata per risolvere nume
 \[ \frac{u_{i+1}-u_i}{dx}= u_i' + \frac{1}{2}u_i''dx + ...  \]
 \[ u_{i+1}-u_{i-1} = 2u_i' dx + \frac{1}{6} u_i'''dx^3 \]
 
-Che cosa vuol dire? che la derivata nel punto i-esimo può essere in qualche modo ricavata attraverso valori della funzione u in i e nei punti vicini i+1, i-1, etc. .\\
-Possiamo poi stimare l'errore di queste stime grazie alle serie di Taylor.\\
+Che cosa vuol dire? che la derivata nel punto i-esimo può essere in qualche modo ricavata attraverso valori della funzione u in i e nei punti vicini i+1, i-1, etc. .
+
+Possiamo poi stimare l'errore di queste stime grazie alle serie di Taylor.
 
 \[ u_{i=0}^{'} = \frac{1}{2dx} \left(- u_{-1} +u_1 \right) + ...dx^2 u_0^{'''}\ \ \ \ \ \ \ \ \ \ u_{0}^{'} = \frac{1}{12dx} \left[ u_{-2} - 8u_{-1} -  8u_1 - u_2\right]+ ...dx^4u_0^{(5)} \]
+
 \[ \text{con al bordo:}\ \ \ \ u^{'}_{0} = \frac{1}{dx} \left( -u_{0}+u_{1} \right) \ \ \ \ \text{oppure} \ \ \ \ \ u^{'}_{0}=\frac{1}{2dx} (-3u_0 + 4u_1 - u_2) \]
 
 \[ u_{0}^{''} = \frac{1}{dx^2} \left(u_{-1} -2u_0 + u_1 \right) + ...dx^2 u_0^{(4)}\ \ \ \ \ \ \ \ \ \ u_{0}^{''} = \frac{1}{12dx^2} \left( -u_{-2} +16u_{-1} -30u_0 + 16u_1 -u_2\right) + ...dx^2y_0^{(6)} \]
@@ -754,7 +769,7 @@ Possiamo poi stimare l'errore di queste stime grazie alle serie di Taylor.\\
 %
 %
 \vspace{1cm}
-\subsection{Flux-conservative PDEs}
+\section{Flux-conservative PDEs}
 Molte equazioni differenziali sono nella forma di un'equazione che conserva il flusso:
 \begin{equation}
 	\boxed{\frac{\partial}{\partial t}\textbf{u}\ =\ -\ \frac{\partial}{\partial x}\textbf{F}(\textbf{u})}\ \ \ \ ,
@@ -769,45 +784,140 @@ definendo $s\equiv\frac{\partial}{\partial t}u$ e $r\equiv v \frac{\partial}{\pa
 %
 %
 \vspace{1cm}
-\subsubsection{Forward Time, Centered Space}
+\subsection{Forward Time, Centered Space}
 Altro esempio di PDS che possiamo scrivere in forma flux-conservative è $\boxed{\displaystyle \frac{\partial u}{\partial t} = v \frac{\partial u}{\partial x}}$ se considerato $\textbf{F}(u)=vu$.
 Prendiamo appunto $\displaystyle \frac{\partial u}{\partial t} = v \frac{\partial u}{\partial x}$, usando $x_j=x_0+j\Delta x$ (j=0, ..., J) e $t_n=t_0+n\Delta t$ (n=0, ..., N) andiamo a discretizzare $u^n_j \equiv u(t_n, x_j)$ e ancora una volta esprimiamo le derivate a meno di un errore:
 \[\frac{\partial u}{\partial t}|_{j, n} = \frac{u_j^{n+1} - u_j^{n}}{\Delta t} + O(\Delta t)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \frac{\partial u}{\partial x}|_{j, n} = \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x} + O(\Delta x^2)\]
-\begin{equation}\label{5}
-	\frac{u_j^{n+1} - u_j^{n}}{\Delta t} = -v\left(\ \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x}\right)
-\end{equation}
-A partire da eq.\ref{5} sviluppiamo la soluzione chiamata \emph{forward time centered space} (\textbf{FTCS}), forma esplicita in cui esprimiamo i valori 'forward' $u^{n+1}$ nel tempo in funzione di $u^{n}$ e centrata nello spazio:
-\begin{equation}\label{Burgers FTCS}
-	u^{n+1}_j = u^n_j - v \Delta t \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x}\ \ \ \ .
-\end{equation}
-Possiamo fare un'\textbf{analisi di stabilità di Von Neumann} arrivati a questo punto: l'idea è quella di studiare la stabilità lineare di un'onda, assumendo $u^n_j = e^{i(kx-\omega t)}$ e definito $\xi\equiv e^{i\omega \Delta t}$ si ha $\displaystyle u^n_j=\xi^n e^{ikj\Delta x}$ dove $\xi^n$ rappresenta l'ampiezza al tempo $t_n$.\\
-Sostituendo $u^n_j$ in eq.\ref{Burgers FTCS} si ottiene:
-\[\xi = 1+ i \frac{v\Delta t }{\Delta x} sin(k\Delta x)\ \ \ .\]
-Risulta chiaro che $|\xi|>1$ quindi secondo quest'analisi per ogni scelta di $\Delta x$ e $\Delta t$ il metodo è instabile $\forall$ k.
 
-
-
-%
-%
-\vspace{1cm}
-\subsubsection{Metodo di Lax}
 
 \begin{multicols}{2}
-	Il metodo di Lax consiste nel sostituire $u^n_j\rightarrow \frac{u^n_{j+1}-u^n_{j-1}}{2}$ all'interno di eq.\ref{Burgers FTCS} così da fare un'analisi di stabilità di Von Neumann sulla forma:
-	\[  u^{n+1}_j = \frac{u^n_{j+1}-u^n_{j-1}}{2} + v \Delta t \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x}\ \ \ \ .\]
-	\[ \xi = cos(k\Delta x) - i \frac{v\Delta t}{\Delta x} sin (k\Delta x)\]
-	dove abbiamo usato ancora $\displaystyle u^n_j=\xi^n e^{ikj\Delta x}$.\\
+
+\begin{equation}\label{FD}
+	\frac{u_j^{n+1} - u_j^{n}}{\Delta t} = -v\left(\ \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x}\right)
+\end{equation}
+
+A partire da eq.\ref{FD} sviluppiamo la soluzione chiamata \emph{forward time centered space} (\textbf{FTCS}), forma esplicita in cui esprimiamo i valori 'forward' $u^{n+1}$ nel tempo in funzione di $u^{n}$ e centrata nello spazio:
+
+\begin{equation}\label{Burgers FTCS}
+	u^{n+1}_j\ =\ u^n_j\ -\ v\, \Delta t\, \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x}\ \ \ \ .
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.5cm]{img/PDE-FTCS.png}
+	\label{FTCS visual}
+	\caption{Visualizzazione del metodo \emph{forward time centered space}, in cui vengono usati 3 punti $j-1,\,j,\,j+1$ al tempo n-esimo per il calcolo al tempo $n+1$-esimo in posizione $j$.}
+\end{figure}
+
+\end{multicols}
+
+
+\subsubsection{Analisi di stabilità}
+Possiamo fare un'\textbf{analisi di stabilità di Von Neumann} arrivati a questo punto: l'idea è quella di studiare la stabilità lineare di un'onda, assumendo $u^n_j = e^{i(kx-\omega t)}$ e definito $\xi\equiv e^{i\omega \Delta t}$ si ha $\displaystyle u^n_j=\xi^n e^{ikj\Delta x}$ dove $\xi^n$ rappresenta l'ampiezza al tempo $t_n$ (quindi $e^{-i\omega t}=(e^{-i\omega \Delta t})^n=\xi^n$).
+
+Sostituendo $u^n_j$ in eq.\ref{Burgers FTCS} si ottiene:
+
+\[\xi\ =\ 1\, +\, i \frac{v\Delta t }{\Delta x}\, sin(k\Delta x)\ \ \ .\]
+
+Risulta chiaro che $|\xi|>1$ quindi secondo quest'analisi per ogni scelta di $\Delta x$ e $\Delta t$, il metodo è instabile $\forall$ k.
+
+
+
+%
+%
+\newpage
+\subsection{Metodo di Lax}
+
+\begin{multicols}{2}
+	Il \underline{metodo di Lax} consiste nel sostituire 
+	\[u^n_j\rightarrow \frac{u^n_{j+1}-u^n_{j-1}}{2}\]
+	all'interno di eq.(\ref{Burgers FTCS}) così da fare un'analisi di stabilità di Von Neumann sulla forma:
+	
+	\begin{equation}\label{Lax}
+	u^{n+1}_j = \frac{u^n_{j+1}-u^n_{j-1}}{2} + v \Delta t \frac{u_{j+1}^{n} - u_{j-1}^{n}}{2\Delta x}\ ,
+	\end{equation}
+	
+	\[ \xi = cos(k\Delta x) - i \frac{v\Delta t}{\Delta x} sin (k\Delta x)\ .\]
+	
+	dove abbiamo usato ancora $u^n_j=\xi^n e^{ikj\Delta x}$.
+	
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\linewidth]{img/LAX.jpg}
-		\caption{Caption}
-		\label{fig:placeholder}
+		\label{Lax visual}
+		\includegraphics[width=5.5cm]{img/PDE-LAX.jpg}
+		\caption{Visualizzazione del metodo di Lax, per avanzare nel tempo a $(n+1,\, j)$ si usano i punti $(n,\, j-1)$ e $(n,\, j+1)$, non più il punto $(n, j)$ che veniva usato in FTCS.}
 	\end{figure}
+
 \end{multicols}
+
 Ora per la stabilità si ottiene $|\xi|^2 = cos^2(k\Delta x)+  \left( \frac{v\Delta t }{\Delta x}\right)^2 sin^2(k\Delta x)$, che può essere stabile ($|\xi|<1$) se viene rispettato il vincolo $\frac{|v|\Delta t}{\Delta x}\leq 1$
 
+\subsubsection{Cosa c'è dietro il metodo di Lax}
+
+\subsubsection{Lax in più dimensioni}
+
+\subsubsection{Errori del metodo di Lax}
 
 
+
+\subsection{Metodo staggered leap-frog}
+\begin{multicols}{2}
+
+\begin{figure}[H]
+	\centering
+	\label{Leap frog visual}
+	\includegraphics[width=6cm]{img/PDE-leap-frog.jpg}
+	\caption{Visualizzazione del metodo \emph{staggered leap frog}.}
+\end{figure}
+\end{multicols}
+
+\subsection{Metodo two-step Lax-Wendroff}
+\begin{multicols}{2}
+
+\begin{figure}[H]
+	\centering
+	\label{Lax Wendroff visual}
+	\includegraphics[width=6cm]{img/PDE-LW.jpg}
+	\caption{Visualizzazione dello schema \emph{Two-Step Lax-Wendroff}.}
+\end{figure}
+\end{multicols}
+
+\subsection{Schroedinger e operatori split}
+
+
+\section{Diffusive initial value problems}
+
+\subsubsection{Schemi impliciti}
+
+\subsubsection{Second'ordine}
+
+\begin{multicols}{2}
+
+\begin{figure}[H]
+	\centering
+	\label{Crank Nicholson visual}
+	\includegraphics[width=6cm]{img/PDE-CN.jpg}
+	\caption{Visualizzazione dello schema \emph{Crank-Nicholson}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\label{Implicit visual}
+	\includegraphics[width=6cm]{img/PDE-Implicit.jpg}
+	\caption{Visualizzazione dello schema \emph{implicit}.}
+\end{figure}
+\end{multicols}
+
+\subsubsection{In più dimensioni}
+
+\section{Metodi di Fourier}
+
+\section{Cyclic Reduction}
+
+\section{Metodi di rilassamento}
+
+
+\newpage
 %
 %
 \vspace{1cm}

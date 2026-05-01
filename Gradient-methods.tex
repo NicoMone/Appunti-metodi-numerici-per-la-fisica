@@ -318,7 +318,7 @@ end
 %
 \subsection{Interpretazione geometrica}
 
-Data l'eq.(\eqref{errori gradiente}), dove \(\mathbf{\epsilon} = \mathbf{\phi} - \mathbf{x}\), se espandiamo \(\mathbf{\epsilon}\) in termini degli autovettori di \(\mathbf{A}\), $\mathbf{\epsilon} = \mathbf{U} \mathbf{z}$, dove \(\mathbf{U}\) è la matrice ortogonale degli autovettori e \(\mathbf{z}\) è il vettore dei coefficienti, otteniamo:
+Data l'eq.\eqref{errori gradiente}, dove \(\mathbf{\epsilon} = \mathbf{\phi} - \mathbf{x}\), se espandiamo \(\mathbf{\epsilon}\) in termini degli autovettori di \(\mathbf{A}\), $\mathbf{\epsilon} = \mathbf{U} \mathbf{z}$, dove \(\mathbf{U}\) è la matrice ortogonale degli autovettori e \(\mathbf{z}\) è il vettore dei coefficienti, otteniamo:
 
 \begin{equation*}
 	E_3(\mathbf{z})\ =\  (\mathbf{U} \mathbf{z})^T\, \mathbf{A}\, \mathbf{U} \mathbf{z}\ =\ \mathbf{z}^T \mathbf{U}^T\, \mathbf{A}\, \mathbf{U} \mathbf{z}\ =\ \mathbf{z}^T\, \mathbf{\Lambda}\, \mathbf{z},
@@ -328,7 +328,7 @@ con \(\mathbf{\Lambda}\) matrice diagonale degli autovalori \(\lambda_i\) di \(\
 
 \subsubsection{Iperellissoidi e autovalori}
 
-L’equazione \eqref{eq:errore3} può essere riscritta come: $E_3(\mathbf{z}) = \lambda_1 z_1^2 + \lambda_2 z_2^2 + \dots + \lambda_n z_n^2$ .
+L'equazione \eqref{eq:errore3} può essere riscritta come: $E_3(\mathbf{z}) = \lambda_1 z_1^2 + \lambda_2 z_2^2 + \dots + \lambda_n z_n^2$ .
 
 I luoghi a errore costante sono rappresentati da iperellissoidi i cui semiassi sono legati agli autovalori di \(\mathbf{A}\):
 
@@ -452,8 +452,6 @@ F(\mathbf{x}^{(k+1)})\ &=\
 	\frac{(\mathbf{r}^{(k)},\, \mathbf{p}^{(k)})}{(\mathbf{A} \mathbf{p}^{(k)},\, \mathbf{p}^{(k)})}\ \ .
 \end{equation*}
 
-
-\subsection*{Pseudocodice del Conjugate Gradient Method}
 
 \begin{lstlisting}[caption={Implementazione del CGM}]
 % Inizializzazione

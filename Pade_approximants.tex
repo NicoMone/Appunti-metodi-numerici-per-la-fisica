@@ -1,0 +1,73 @@
+\chapter{Approssimanti di Padé}
+\section{Introduzione}
+Gli \textbf{approssimanti di Padé} rappresentano la migliore approssimazione di una funzione $f(\theta)$  ottenibile tramite una funzione razionale di ordine assegnato. Essi sono definiti dalla relazione:
+
+\[R_{(S, T)}(\theta) = \frac{\sum_{i=0}^{T} p_i \theta^i}{1 + \sum_{k=1}^{S} q_k \theta^k} = \frac{p_0 + p_1 \theta + p_2 \theta^2 + \cdots + p_T \theta^T}{1 + q_1 \theta + q_2 \theta^2 + \cdots + q_S \theta^S}\ \ .\]
+
+I coefficienti  $p_i$  e  $q_k$  sono determinati in modo da soddisfare, al massimo ordine possibile, le seguenti identità:
+\[\left. \frac{\mathrm{d}^n R}{\mathrm{d} \theta^n} \right|_0 = \left. \frac{\mathrm{d}^n f}{\mathrm{d} \theta^n} \right|_0 \quad (n = 0, \dots, S + T)\]
+
+%
+%
+%  
+\section{Applicazione alla funzione esponenziale}
+
+\subsection{Approssimante $ R_{(0,1)}(\theta)$ }
+
+Consideriamo la funzione esponenziale  $e^{\theta}$  e definiamo l’approssimante  $R_{(0,1)}(\theta)$  come:
+
+\[R_{(0,1)}(\theta) = p_0 + p_1 \theta  \]
+
+Imponendo le condizioni di approssimazione di cui sopra:
+
+\[R_{(0,1)}(0) = \left. e^{\theta} \right|_0 \implies p_0 = 1  \]
+
+\[\left. \frac{\mathrm{d} R_{(0,1)}}{\mathrm{d} \theta} \right|_0 = \left. \frac{\mathrm{d} e^{\theta}}{\mathrm{d} \theta} \right|_0 \implies p_1 = 1  \]
+
+Si ottiene quindi:
+
+\[R_{(0,1)}(\theta) = 1 + \theta  \]
+
+%
+\subsection{Approssimante  $R_{(1,0)}(\theta)$ }
+Definiamo ora l’approssimante  $R_{(1,0)}(\theta)$  come:
+
+\[R_{(1,0)}(\theta) = \frac{p_0}{1 + q_1 \theta}  \]
+
+Imponendo le condizioni di approssimazione:
+
+\[R_{(1,0)}(0) = \left. e^{\theta} \right|_0 \implies p_0 = 1  \]
+
+\[\left. \frac{\mathrm{d} R_{(1,0)}}{\mathrm{d} \theta} \right|_0 = \left. 
+\frac{\mathrm{d} e^{\theta}}{\mathrm{d} \theta} \right|_0 \implies -\left. \frac{p_0 q_1}{(1 + q_1 \theta)^2} \right|_0 = 1 \implies q_1 = -1  \]
+
+Si ottiene quindi:
+
+\[R_{(1,0)}(\theta) = \frac{1}{1 - \theta} \] 
+
+%
+\subsection{Approssimante $R_{(1,1)}(\theta)$}
+
+Definiamo infine l’approssimante  $R_{(1,1)}(\theta)$  come:
+
+$$R_{(1,1)}(\theta) = \frac{p_0 + p_1 \theta}{1 + q_1 \theta}$$  
+
+Imponendo le condizioni di approssimazione:
+
+$$R_{(1,1)}(0) = \left. e^\theta \right|_0 \implies p_0 = 1$$ 
+
+\[\left. \frac{\mathrm{d} R_{(1,1)}}{\mathrm{d} \theta} \right|_0 = \left. \frac{\mathrm{d} e^\theta}{\mathrm{d} \theta} \right|_0 \implies \left. \frac{p_1 - q_1}{(1 + q_1 \theta)^2} \right|_0 = 1  \]
+\[\left. \frac{\mathrm{d}^2 R_{(1,1)}}{\mathrm{d} \theta^2} \right|_0 = \left. \frac{\mathrm{d}^2 e^\theta}{\mathrm{d} \theta^2} \right|_0 \implies -\frac{2(1 + q_1 \theta) q_1 (p_1 - q_1)}{(1 + q_1 \theta)^4} \Bigg|_0 = 1  \]
+
+Dalle equazioni precedenti si ricava il sistema:
+
+\[\begin{aligned}
+	p_1 - q_1 &= 1\\
+	-2 q_1 (p_1 - q_1) &= 1
+\end{aligned}\]  
+
+La cui soluzione è: $p_1 = \frac{1}{2},\ q_1 = -\frac{1}{2}$ .
+
+Si ottiene quindi:
+
+\[R_{(1,1)}(\theta) = \frac{1 + \frac{1}{2} \theta}{1 - \frac{1}{2} \theta} \]

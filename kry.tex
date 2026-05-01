@@ -1,0 +1,99 @@
+\chapter{Metodi del sottospazio di Krylov}
+\subsection{Contesto generale}
+Nel contesto della risoluzione di sistemi lineari derivanti da equazioni differenziali alle derivate parziali (PDE) discretizzate:
+\begin{itemize}
+	\item Le matrici dei coefficienti sono \textbf{sparse} (ad esempio, equazioni a 3, 5 o 7 punti).
+	\item I metodi diretti, come la fattorizzazione LU, possono generare un \textbf{fill-in} significativo.
+	\item La risoluzione di sistemi triangolari (es. $\mathbf{L}\mathbf{\psi} = \mathbf{b}$; $\mathbf{U}\mathbf{\phi} = \mathbf{\psi}$) può richiedere un numero eccessivo di FLOPs.
+	\item Metodi come il \textbf{gradiente coniugato} (applicabile solo a matrici SPD) non aumentano il costo computazionale e la memoria con le iterazioni.
+	\item L'estensione di questi metodi a matrici generali richiede la creazione di una base ortogonale incrementale per il \textbf{sottospazio di Krylov}.
+	\item Tuttavia, il numero di FLOPs e la memoria crescono ad ogni iterazione.
+\end{itemize}
+
+\section{Sistema di equazioni lineari con matrice generale $\mathbf{A}$}
+Dato il sistema di equazioni lineari:
+\[
+\mathbf{A} \mathbf{x} = \mathbf{b}, \quad \text{con } \mathbf{A} \in \mathbb{R}^{n \times n}, \mathbf{b} \in \mathbb{R}^{n}. \tag{1}
+\]
+Dato un valore iniziale $\mathbf{x}_0$, si definisce il residuo $\mathbf{r}_0 = \mathbf{b} - \mathbf{A} \mathbf{x}_0$. La soluzione esatta può essere scritta come:
+\[
+\mathbf{x} = \mathbf{x}_0 + \mathbf{A}^{-1} \mathbf{r}_0. \tag{2}
+\]
+\paragraph{Punto chiave:}
+Poiché il calcolo di $\mathbf{A}^{-1}$ è spesso troppo costoso per sistemi sparsi di grandi dimensioni, è preferibile:
+\begin{itemize}
+	\item Cercare un'approssimazione di $\mathbf{A}^{-1} \mathbf{r}_0$;
+	\item Utilizzare solo operazioni convenienti (ad esempio, prodotti matrice-vettore).
+\end{itemize}
+
+\section{Approssimazione di $\mathbf{A}^{-1}$}
+Invece di calcolare $\mathbf{A}^{-1}$, si approssima la sua azione sul residuo $\mathbf{r}_0$ tramite un polinomio opportuno in $\mathbf{A}$:
+\[
+\mathbf{A}^{-1} \mathbf{r}_0 \approx p_{k-1}(\mathbf{A}) \mathbf{r}_0 = \sum_{i=0}^{k-1} c_i \mathbf{A}^i \mathbf{r}_0. \tag{3}
+\]
+Quindi, una soluzione approssimata del sistema $\mathbf{A} \mathbf{x} = \mathbf{b}$ è:
+\[
+\mathbf{x}_k = \mathbf{x}_0 + p_{k-1}(\mathbf{A}) \mathbf{r}_0. \tag{4}
+\]
+\paragraph{Punto chiave:}
+Ogni vettore della forma $p_{k-1}(\mathbf{A}) \mathbf{r}_0$ appartiene allo spazio:
+\[
+\mathcal{K}_k(\mathbf{A}, \mathbf{r}_0) = \operatorname{span}\{\mathbf{r}_0, \mathbf{A} \mathbf{r}_0, \dots, \mathbf{A}^{k-1} \mathbf{r}_0\}. \tag{5}
+\]
+
+\section{Il sottospazio di Krylov}
+\subsection{Definizione}
+Lo spazio
+\[
+\mathcal{K}_k(\mathbf{A},\mathbf{r}_0) = \mathrm{span}\{\mathbf{r}_0,\mathbf{A}\mathbf{r}_0,\dots ,\mathbf{A}^{k - 1}\mathbf{r}_0\}
+\]
+è chiamato \textbf{sottospazio di Krylov} di ordine $k$.
+
+\subsection{Interpretazione}
+Cosa rappresentano gli elementi del sottospazio di Krylov? Immaginiamo $\mathbf{A}$ come l'approssimazione di un operatore differenziale:
+\begin{itemize}
+	\item $\mathbf{r}_0$: residuo iniziale;
+	\item $\mathbf{A}\mathbf{r}_0$: misura della derivata (locale) del residuo;
+	\item $\mathbf{A}^2\mathbf{r}_0, \ldots$: rappresentano derivate di ordine superiore (locali).
+\end{itemize}
+Ogni moltiplicazione per $\mathbf{A}$ estrae nuove informazioni sul comportamento del sistema.
+
+\subsection{Forma del residuo}
+Secondo l'Eq.(4), il residuo $\mathbf{r}_k$ assume la forma:
+\[
+\begin{array}{l}
+	\mathbf{r}_k = \mathbf{b} - \mathbf{A} \mathbf{x}_k = \mathbf{b} - \mathbf{A} \left(\mathbf{x}_0 + p_{k-1}(\mathbf{A}) \mathbf{r}_0\right) \\
+	= \left(\mathbf{I} - \mathbf{A} p_{k-1}(\mathbf{A})\right) \mathbf{r}_0, \tag{6}
+\end{array}
+\]
+che, introducendo un nuovo polinomio matriciale di ordine $k$,
+\[
+q_k(\mathbf{A}) = \left(\mathbf{I} - \mathbf{A} p_{k-1}(\mathbf{A})\right), \tag{7}
+\]
+si riduce a:
+\[
+\mathbf{r}_k = q_k(\mathbf{A}) \mathbf{r}_0. \tag{8}
+\]
+La convergenza è quindi governata dalla capacità del polinomio matriciale $q_k(\mathbf{A})$ di smorzare efficacemente il residuo iniziale $\mathbf{r}_0$.
+
+\subsection{Metodo di Krylov}
+Un metodo di Krylov combina:
+\begin{itemize}
+	\item Uno spazio di ricerca per il vettore soluzione:
+	\[
+	\mathbf{x}_0 + \mathcal{K}_k(\mathbf{A}, \mathbf{r}_0); \tag{9}
+	\]
+	\item Un vincolo sul residuo.
+\end{itemize}
+Due scelte classiche:
+\begin{itemize}
+	\item \textbf{Condizione di Galerkin}:
+	\[
+	\mathbf{r}_k \perp \mathcal{K}_k(\mathbf{A}, \mathbf{r}_0); \tag{10}
+	\]
+	\item \textbf{Condizione di residuo minimo}:
+	\[
+	\left\| \mathbf{r}_k \right\|_2 = \min_{\mathbf{x} \in \mathbf{x}_0 + \mathcal{K}_k(\mathbf{A}, \mathbf{r}_0)} \left\| \mathbf{b} - \mathbf{A} \mathbf{x} \right\|_2. \tag{11}
+	\]
+\end{itemize}
+Il metodo \textbf{GMRES} (Generalized Minimal RESidual) appartiene alla seconda classe.
